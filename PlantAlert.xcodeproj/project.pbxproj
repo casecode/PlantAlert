@@ -15,6 +15,8 @@
 		489E621F1A1A8264009B904F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 489E621D1A1A8264009B904F /* LaunchScreen.xib */; };
 		489E622B1A1A8264009B904F /* PlantAlertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 489E622A1A1A8264009B904F /* PlantAlertTests.m */; };
 		92873AAB1A1A899800E6B809 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AAA1A1A899800E6B809 /* HomeVC.m */; };
+		92873AAF1A1AA53700E6B809 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AAE1A1AA53700E6B809 /* LoginVC.m */; };
+		92873AB21A1AA54E00E6B809 /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AB11A1AA54E00E6B809 /* SignUpVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,10 @@
 		489E622A1A1A8264009B904F /* PlantAlertTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlantAlertTests.m; sourceTree = "<group>"; };
 		92873AA91A1A899800E6B809 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		92873AAA1A1A899800E6B809 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
+		92873AAD1A1AA53700E6B809 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		92873AAE1A1AA53700E6B809 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		92873AB01A1AA54E00E6B809 /* SignUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpVC.h; sourceTree = "<group>"; };
+		92873AB11A1AA54E00E6B809 /* SignUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,10 @@
 			children = (
 				92873AA91A1A899800E6B809 /* HomeVC.h */,
 				92873AAA1A1A899800E6B809 /* HomeVC.m */,
+				92873AAD1A1AA53700E6B809 /* LoginVC.h */,
+				92873AAE1A1AA53700E6B809 /* LoginVC.m */,
+				92873AB01A1AA54E00E6B809 /* SignUpVC.h */,
+				92873AB11A1AA54E00E6B809 /* SignUpVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -230,8 +240,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92873AB21A1AA54E00E6B809 /* SignUpVC.m in Sources */,
 				489E62111A1A8264009B904F /* AppDelegate.m in Sources */,
 				92873AAB1A1A899800E6B809 /* HomeVC.m in Sources */,
+				92873AAF1A1AA53700E6B809 /* LoginVC.m in Sources */,
 				489E620E1A1A8264009B904F /* main.m in Sources */,
 				489E62141A1A8264009B904F /* PlantAlert.xcdatamodeld in Sources */,
 			);
