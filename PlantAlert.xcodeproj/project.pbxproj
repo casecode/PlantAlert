@@ -14,6 +14,7 @@
 		489E621C1A1A8264009B904F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 489E621B1A1A8264009B904F /* Images.xcassets */; };
 		489E621F1A1A8264009B904F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 489E621D1A1A8264009B904F /* LaunchScreen.xib */; };
 		489E622B1A1A8264009B904F /* PlantAlertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 489E622A1A1A8264009B904F /* PlantAlertTests.m */; };
+		92873AAB1A1A899800E6B809 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AAA1A1A899800E6B809 /* HomeVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,8 @@
 		489E62241A1A8264009B904F /* PlantAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlantAlertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		489E62291A1A8264009B904F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		489E622A1A1A8264009B904F /* PlantAlertTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlantAlertTests.m; sourceTree = "<group>"; };
+		92873AA91A1A899800E6B809 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
+		92873AAA1A1A899800E6B809 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,7 @@
 		489E620A1A1A8264009B904F /* PlantAlert */ = {
 			isa = PBXGroup;
 			children = (
+				92873AAC1A1A89A200E6B809 /* ViewControllers */,
 				489E620F1A1A8264009B904F /* AppDelegate.h */,
 				489E62101A1A8264009B904F /* AppDelegate.m */,
 				489E62181A1A8264009B904F /* Main.storyboard */,
@@ -115,6 +119,15 @@
 				489E62291A1A8264009B904F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		92873AAC1A1A89A200E6B809 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				92873AA91A1A899800E6B809 /* HomeVC.h */,
+				92873AAA1A1A899800E6B809 /* HomeVC.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				489E62111A1A8264009B904F /* AppDelegate.m in Sources */,
+				92873AAB1A1A899800E6B809 /* HomeVC.m in Sources */,
 				489E620E1A1A8264009B904F /* main.m in Sources */,
 				489E62141A1A8264009B904F /* PlantAlert.xcdatamodeld in Sources */,
 			);
@@ -412,6 +426,7 @@
 				489E62301A1A8264009B904F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		489E62311A1A8264009B904F /* Build configuration list for PBXNativeTarget "PlantAlertTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +435,7 @@
 				489E62331A1A8264009B904F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
