@@ -7,7 +7,7 @@
         <!--Profile-->
         <scene sceneID="nea-m0-sZM">
             <objects>
-                <viewController storyboardIdentifier="ProfileVC" title="Profile" id="FQQ-WP-Kpl" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" title="Profile" id="FQQ-WP-Kpl" customClass="ProfileVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dSb-BC-oYN"/>
                         <viewControllerLayoutGuide type="bottom" id="bfX-OM-Iu1"/>
@@ -15,9 +15,63 @@
                     <view key="view" contentMode="scaleToFill" id="Qw8-k8-cbC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cB7-db-W8m">
+                                <rect key="frame" x="15" y="80" width="570" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nkb-Gz-ITg">
+                                <rect key="frame" x="15" y="115" width="570" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="18y-8Z-tbN">
+                                <rect key="frame" x="15" y="160" width="570" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrz-4h-txm">
+                                <rect key="frame" x="15" y="230" width="570" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Update phone number">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="updateProfilePressed:" destination="FQQ-WP-Kpl" eventType="touchUpInside" id="Gex-Sy-Qb8"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="18y-8Z-tbN" firstAttribute="leading" secondItem="qrz-4h-txm" secondAttribute="leading" id="8fY-aa-sdi"/>
+                            <constraint firstItem="cB7-db-W8m" firstAttribute="trailing" secondItem="nkb-Gz-ITg" secondAttribute="trailing" id="Ndb-wt-dzG"/>
+                            <constraint firstItem="cB7-db-W8m" firstAttribute="leading" secondItem="Qw8-k8-cbC" secondAttribute="leading" constant="15" id="QQw-Xg-DKA"/>
+                            <constraint firstItem="nkb-Gz-ITg" firstAttribute="trailing" secondItem="18y-8Z-tbN" secondAttribute="trailing" id="TjT-ho-xPp"/>
+                            <constraint firstItem="18y-8Z-tbN" firstAttribute="top" secondItem="nkb-Gz-ITg" secondAttribute="bottom" constant="15" id="V9R-Mc-6OG"/>
+                            <constraint firstItem="cB7-db-W8m" firstAttribute="leading" secondItem="nkb-Gz-ITg" secondAttribute="leading" id="WJw-OV-76b"/>
+                            <constraint firstItem="nkb-Gz-ITg" firstAttribute="leading" secondItem="18y-8Z-tbN" secondAttribute="leading" id="fNe-4o-lkQ"/>
+                            <constraint firstItem="cB7-db-W8m" firstAttribute="top" secondItem="dSb-BC-oYN" secondAttribute="bottom" constant="60" id="odd-wa-1Ir"/>
+                            <constraint firstItem="qrz-4h-txm" firstAttribute="top" secondItem="18y-8Z-tbN" secondAttribute="bottom" constant="40" id="rAT-im-wZo"/>
+                            <constraint firstAttribute="trailing" secondItem="cB7-db-W8m" secondAttribute="trailing" constant="15" id="u41-qK-d7b"/>
+                            <constraint firstItem="nkb-Gz-ITg" firstAttribute="top" secondItem="cB7-db-W8m" secondAttribute="bottom" constant="5" id="wyL-wC-Uuf"/>
+                            <constraint firstItem="18y-8Z-tbN" firstAttribute="trailing" secondItem="qrz-4h-txm" secondAttribute="trailing" id="xYD-cG-i9K"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="QKT-MJ-Bhr"/>
+                    <tabBarItem key="tabBarItem" title="" id="QKT-MJ-Bhr"/>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="18y-8Z-tbN" id="vYQ-eC-VH1"/>
+                        <outlet property="emailTextField" destination="cB7-db-W8m" id="iw5-gF-4Mv"/>
+                        <outlet property="passwordTextField" destination="nkb-Gz-ITg" id="ZKE-Qk-6ax"/>
+                        <outlet property="updateProfileButton" destination="qrz-4h-txm" id="SDi-it-Btc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHw-51-Qtq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -52,6 +106,12 @@
                                 <state key="normal" title="Log in">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="LoginPressed:" destination="ZIY-x3-XNb" eventType="touchUpInside" id="AEd-VV-cEf"/>
                                 </connections>
@@ -63,6 +123,12 @@
                                 <state key="normal" title="Sign up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="SignUpPressed:" destination="ZIY-x3-XNb" eventType="touchUpInside" id="y0O-Yy-z8o"/>
                                 </connections>
@@ -117,11 +183,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Garden List" id="Wbe-tE-gLU"/>
+                    <tabBarItem key="tabBarItem" title="" id="Wbe-tE-gLU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xow-KL-7ys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="-11"/>
+            <point key="canvasLocation" x="665" y="355"/>
         </scene>
         <!--AddGarden-->
         <scene sceneID="Nx0-R6-F88">
@@ -193,6 +259,12 @@
                                 <state key="normal" title="Sign up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="signUpPressed:" destination="VWI-FW-Jl0" eventType="touchUpInside" id="ENK-Fe-fMD"/>
                                 </connections>
@@ -250,7 +322,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fw-mJ-Ipu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-201" y="321"/>
+            <point key="canvasLocation" x="-176" y="744"/>
         </scene>
     </scenes>
 </document>
