@@ -252,7 +252,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKe-DS-ZGQ">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKe-DS-ZGQ">
                                 <rect key="frame" x="15" y="265" width="570" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -269,36 +269,24 @@
                                     <action selector="signUpPressed:" destination="VWI-FW-Jl0" eventType="touchUpInside" id="ENK-Fe-fMD"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nus-W9-koy">
-                                <rect key="frame" x="15" y="185" width="570" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Vsj-3x-t0k" firstAttribute="leading" secondItem="nus-W9-koy" secondAttribute="leading" id="5BH-3O-VRe"/>
-                            <constraint firstItem="Vsj-3x-t0k" firstAttribute="trailing" secondItem="nus-W9-koy" secondAttribute="trailing" id="CzC-Mi-WRP"/>
                             <constraint firstItem="Vsj-3x-t0k" firstAttribute="leading" secondItem="qyU-oA-cy5" secondAttribute="leading" id="FwG-Hf-hX6"/>
                             <constraint firstItem="qyU-oA-cy5" firstAttribute="top" secondItem="Gan-hK-k7I" secondAttribute="bottom" constant="5" id="HRT-fp-azL"/>
                             <constraint firstItem="Gan-hK-k7I" firstAttribute="top" secondItem="hwd-l6-NZB" secondAttribute="bottom" constant="60" id="IIv-pk-Vyn"/>
                             <constraint firstItem="Vsj-3x-t0k" firstAttribute="top" secondItem="qyU-oA-cy5" secondAttribute="bottom" constant="5" id="Khi-aS-0LP"/>
                             <constraint firstItem="Gan-hK-k7I" firstAttribute="leading" secondItem="MQg-cH-BLA" secondAttribute="leading" constant="15" id="Lhm-6J-DbA"/>
-                            <constraint firstItem="nus-W9-koy" firstAttribute="top" secondItem="Vsj-3x-t0k" secondAttribute="bottom" constant="5" id="VZb-Ul-s8M"/>
                             <constraint firstItem="Vsj-3x-t0k" firstAttribute="leading" secondItem="Gan-hK-k7I" secondAttribute="leading" id="aX5-FJ-g79"/>
                             <constraint firstItem="Vsj-3x-t0k" firstAttribute="trailing" secondItem="Gan-hK-k7I" secondAttribute="trailing" id="afG-eD-hCA"/>
                             <constraint firstItem="Vsj-3x-t0k" firstAttribute="trailing" secondItem="qyU-oA-cy5" secondAttribute="trailing" id="f3U-CZ-TtS"/>
-                            <constraint firstItem="nus-W9-koy" firstAttribute="leading" secondItem="tKe-DS-ZGQ" secondAttribute="leading" id="hVp-Sm-LBh"/>
-                            <constraint firstItem="nus-W9-koy" firstAttribute="trailing" secondItem="tKe-DS-ZGQ" secondAttribute="trailing" id="pd7-Xh-PCG"/>
                             <constraint firstAttribute="trailing" secondItem="Gan-hK-k7I" secondAttribute="trailing" constant="15" id="yVK-Vk-Ts9"/>
-                            <constraint firstItem="tKe-DS-ZGQ" firstAttribute="top" secondItem="nus-W9-koy" secondAttribute="bottom" constant="50" id="zFp-Zp-loD"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="Vsj-3x-t0k" id="lzr-rY-JLH"/>
                         <outlet property="emailTextField" destination="Gan-hK-k7I" id="cIv-1e-YPL"/>
                         <outlet property="passwordTextField" destination="qyU-oA-cy5" id="2ue-TZ-rgi"/>
-                        <outlet property="phoneNumberTextField" destination="nus-W9-koy" id="lVa-8b-HG0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rWD-dn-LRS" userLabel="First Responder" sceneMemberID="firstResponder"/>
