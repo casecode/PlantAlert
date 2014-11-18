@@ -17,6 +17,7 @@
 		92873AAB1A1A899800E6B809 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AAA1A1A899800E6B809 /* HomeVC.m */; };
 		92873AAF1A1AA53700E6B809 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AAE1A1AA53700E6B809 /* LoginVC.m */; };
 		92873AB21A1AA54E00E6B809 /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AB11A1AA54E00E6B809 /* SignUpVC.m */; };
+		92873AB61A1AAD6B00E6B809 /* PAConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AB51A1AAD6B00E6B809 /* PAConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		92873AAE1A1AA53700E6B809 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		92873AB01A1AA54E00E6B809 /* SignUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpVC.h; sourceTree = "<group>"; };
 		92873AB11A1AA54E00E6B809 /* SignUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpVC.m; sourceTree = "<group>"; };
+		92873AB41A1AAD6B00E6B809 /* PAConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAConstants.h; sourceTree = "<group>"; };
+		92873AB51A1AAD6B00E6B809 /* PAConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,11 +92,14 @@
 		489E620A1A1A8264009B904F /* PlantAlert */ = {
 			isa = PBXGroup;
 			children = (
-				92873AAC1A1A89A200E6B809 /* ViewControllers */,
+				92873AB41A1AAD6B00E6B809 /* PAConstants.h */,
+				92873AB51A1AAD6B00E6B809 /* PAConstants.m */,
 				489E620F1A1A8264009B904F /* AppDelegate.h */,
 				489E62101A1A8264009B904F /* AppDelegate.m */,
-				489E62181A1A8264009B904F /* Main.storyboard */,
+				92873AAC1A1A89A200E6B809 /* ViewControllers */,
+				92873AB31A1AACDB00E6B809 /* Services */,
 				489E621B1A1A8264009B904F /* Images.xcassets */,
+				489E62181A1A8264009B904F /* Main.storyboard */,
 				489E621D1A1A8264009B904F /* LaunchScreen.xib */,
 				489E62121A1A8264009B904F /* PlantAlert.xcdatamodeld */,
 				489E620B1A1A8264009B904F /* Supporting Files */,
@@ -138,6 +144,13 @@
 				92873AB11A1AA54E00E6B809 /* SignUpVC.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		92873AB31A1AACDB00E6B809 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92873AB21A1AA54E00E6B809 /* SignUpVC.m in Sources */,
+				92873AB61A1AAD6B00E6B809 /* PAConstants.m in Sources */,
 				489E62111A1A8264009B904F /* AppDelegate.m in Sources */,
 				92873AAB1A1A899800E6B809 /* HomeVC.m in Sources */,
 				92873AAF1A1AA53700E6B809 /* LoginVC.m in Sources */,

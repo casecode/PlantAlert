@@ -7,6 +7,8 @@
 //
 
 #import "LoginVC.h"
+#import "PAConstants.h"
+#import "SignUpVC.h"
 
 @interface LoginVC ()
 
@@ -21,29 +23,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    if (self.navigationController) {
+        self.title = @"Login";
+    }
 }
 
 - (IBAction)LoginPressed:(id)sender {
+    id mainTabBar = [self.storyboard instantiateViewControllerWithIdentifier:kReIDMainTabBarController];
+    [self presentViewController:mainTabBar animated:YES completion:nil];
 }
 
 - (IBAction)SignUpPressed:(id)sender {
+    SignUpVC *signUpVC = [self.storyboard instantiateViewControllerWithIdentifier:kReIDSignUpVC];
+    [self.navigationController pushViewController:signUpVC animated:YES];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
