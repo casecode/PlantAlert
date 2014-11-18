@@ -1,0 +1,13 @@
+PODS:
+  - HexColors (2.2.1)
+  - TSMessages (0.9.11):
+    - HexColors
+
+DEPENDENCIES:
+  - TSMessages
+
+SPEC CHECKSUMS:
+  HexColors: 01384d2bbe8dc4ffa43c3b4135db6e976952d153
+  TSMessages: e21ef5b1c7518cc590a4826c8b05b16b79b10c2c
+
+COCOAPODS: 0.34.4

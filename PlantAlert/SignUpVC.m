@@ -8,6 +8,8 @@
 
 #import "SignUpVC.h"
 #import "PANetworkingService.h"
+#import <TSMessages/TSMessage.h>
+#import <TSMessages/TSMessageView.h>
 
 @interface SignUpVC ()
 
@@ -44,6 +46,39 @@
 }
 
 - (IBAction)signUpPressed:(id)sender {
+    
+    NSString *errorMessage = nil;
+    
+    if (self.emailTextField.text.length == 0) {
+        errorMessage = @"You must provide an email address";
+        self.emailTextField.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
+    }
+    
+    else if (self.passwordTextField.text.length < 8) {
+        errorMessage = @"Your password must be at least 8 characters long";
+        self.passwordTextField.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
+    }
+    else if (self.passwordTextField.text != self.confirmPasswordTextField.text) {
+        errorMessage = @"Password and password confirmation must match";
+        self.passwordTextField.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
+        self.confirmPasswordTextField.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
+    }
+    
+    if (errorMessage) {
+        [TSMessage showNotificationInViewController:self
+                                              title:errorMessage
+                                           subtitle:nil
+                                              image:nil
+                                               type:TSMessageNotificationTypeMessage
+                                           duration:TSMessageNotificationDurationAutomatic
+                                           callback:nil
+                                        buttonTitle:@"OK"
+                                     buttonCallback:^{
+                                         NSLog(@"User tapped the button");
+                                     }
+                                         atPosition:TSMessageNotificationPositionTop
+                               canBeDismissedByUser:YES];
+    }
 
     NSDictionary *userData = @{@"email"     : _emailTextField.text,
                                @"password"  : _passwordTextField.text};
