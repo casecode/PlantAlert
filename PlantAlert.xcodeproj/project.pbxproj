@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		489CADC51A1B0252006ADF7C /* PANetworkingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 489CADC41A1B0252006ADF7C /* PANetworkingService.m */; };
 		489E620E1A1A8264009B904F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 489E620D1A1A8264009B904F /* main.m */; };
 		489E62111A1A8264009B904F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 489E62101A1A8264009B904F /* AppDelegate.m */; };
 		489E62141A1A8264009B904F /* PlantAlert.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 489E62121A1A8264009B904F /* PlantAlert.xcdatamodeld */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		489CADC31A1B0252006ADF7C /* PANetworkingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PANetworkingService.h; sourceTree = "<group>"; };
+		489CADC41A1B0252006ADF7C /* PANetworkingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PANetworkingService.m; sourceTree = "<group>"; };
 		489E62081A1A8264009B904F /* PlantAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		489E620C1A1A8264009B904F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		489E620D1A1A8264009B904F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 		92873AB31A1AACDB00E6B809 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				489CADC31A1B0252006ADF7C /* PANetworkingService.h */,
+				489CADC41A1B0252006ADF7C /* PANetworkingService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 				92873AAF1A1AA53700E6B809 /* LoginVC.m in Sources */,
 				489E620E1A1A8264009B904F /* main.m in Sources */,
 				489E62141A1A8264009B904F /* PlantAlert.xcdatamodeld in Sources */,
+				489CADC51A1B0252006ADF7C /* PANetworkingService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

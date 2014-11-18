@@ -7,16 +7,28 @@
 //
 
 #import "SignUpVC.h"
+#import "PANetworkingService.h"
 
 @interface SignUpVC ()
+
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
 
+@property (strong, nonatomic) PANetworkingService *apiService;
+
 @end
 
 @implementation SignUpVC
+
+- (PANetworkingService *)apiService {
+    if (!_apiService) {
+        _apiService = [PANetworkingService sharedService];
+    }
+    
+    return _apiService;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,7 +46,17 @@
 }
 
 - (IBAction)signUpPressed:(id)sender {
-}
 
+    NSDictionary *userData = @{@"email"     : _emailTextField.text,
+                               @"password"  : _passwordTextField.text};
+    [[self apiService] signUpWithUserData:userData completion:^(NSString *token, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }
+        else {
+            NSLog(@"Token: %@", token);
+        }
+    }];
+}
 
 @end
