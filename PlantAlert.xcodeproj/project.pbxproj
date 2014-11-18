@@ -19,6 +19,9 @@
 		92873AAF1A1AA53700E6B809 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AAE1A1AA53700E6B809 /* LoginVC.m */; };
 		92873AB21A1AA54E00E6B809 /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AB11A1AA54E00E6B809 /* SignUpVC.m */; };
 		92873AB61A1AAD6B00E6B809 /* PAConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AB51A1AAD6B00E6B809 /* PAConstants.m */; };
+		92FEAAEC1A1BD4AD00BD0125 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FEAAEB1A1BD4AD00BD0125 /* City.m */; };
+		92FEAAEF1A1BD5C500BD0125 /* CoreDataSeeder.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FEAAEE1A1BD5C500BD0125 /* CoreDataSeeder.m */; };
+		92FEAAF21A1BFF5700BD0125 /* GardenListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FEAAF11A1BFF5700BD0125 /* GardenListVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,12 @@
 		92873AB11A1AA54E00E6B809 /* SignUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpVC.m; sourceTree = "<group>"; };
 		92873AB41A1AAD6B00E6B809 /* PAConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAConstants.h; sourceTree = "<group>"; };
 		92873AB51A1AAD6B00E6B809 /* PAConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAConstants.m; sourceTree = "<group>"; };
+		92FEAAEA1A1BD4AD00BD0125 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		92FEAAEB1A1BD4AD00BD0125 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		92FEAAED1A1BD5C500BD0125 /* CoreDataSeeder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataSeeder.h; sourceTree = "<group>"; };
+		92FEAAEE1A1BD5C500BD0125 /* CoreDataSeeder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataSeeder.m; sourceTree = "<group>"; };
+		92FEAAF01A1BFF5700BD0125 /* GardenListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GardenListVC.h; sourceTree = "<group>"; };
+		92FEAAF11A1BFF5700BD0125 /* GardenListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GardenListVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +114,8 @@
 				489E62181A1A8264009B904F /* Main.storyboard */,
 				489E621D1A1A8264009B904F /* LaunchScreen.xib */,
 				489E62121A1A8264009B904F /* PlantAlert.xcdatamodeld */,
+				92FEAAEA1A1BD4AD00BD0125 /* City.h */,
+				92FEAAEB1A1BD4AD00BD0125 /* City.m */,
 				489E620B1A1A8264009B904F /* Supporting Files */,
 			);
 			path = PlantAlert;
@@ -142,9 +153,11 @@
 				92873AA91A1A899800E6B809 /* HomeVC.h */,
 				92873AAA1A1A899800E6B809 /* HomeVC.m */,
 				92873AAD1A1AA53700E6B809 /* LoginVC.h */,
-				92873AB01A1AA54E00E6B809 /* SignUpVC.h */,
 				92873AAE1A1AA53700E6B809 /* LoginVC.m */,
+				92873AB01A1AA54E00E6B809 /* SignUpVC.h */,
 				92873AB11A1AA54E00E6B809 /* SignUpVC.m */,
+				92FEAAF01A1BFF5700BD0125 /* GardenListVC.h */,
+				92FEAAF11A1BFF5700BD0125 /* GardenListVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -154,6 +167,8 @@
 			children = (
 				489CADC31A1B0252006ADF7C /* PANetworkingService.h */,
 				489CADC41A1B0252006ADF7C /* PANetworkingService.m */,
+				92FEAAED1A1BD5C500BD0125 /* CoreDataSeeder.h */,
+				92FEAAEE1A1BD5C500BD0125 /* CoreDataSeeder.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -265,7 +280,10 @@
 				92873AAF1A1AA53700E6B809 /* LoginVC.m in Sources */,
 				489E620E1A1A8264009B904F /* main.m in Sources */,
 				489E62141A1A8264009B904F /* PlantAlert.xcdatamodeld in Sources */,
+				92FEAAF21A1BFF5700BD0125 /* GardenListVC.m in Sources */,
 				489CADC51A1B0252006ADF7C /* PANetworkingService.m in Sources */,
+				92FEAAEF1A1BD5C500BD0125 /* CoreDataSeeder.m in Sources */,
+				92FEAAEC1A1BD4AD00BD0125 /* City.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

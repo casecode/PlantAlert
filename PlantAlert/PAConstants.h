@@ -14,5 +14,6 @@
 FOUNDATION_EXPORT NSString * const kReIDHomeVC;
 FOUNDATION_EXPORT NSString * const kReIDLoginVC;
 FOUNDATION_EXPORT NSString * const kReIDSignUpVC;
+FOUNDATION_EXPORT NSString * const kReIDGardenListVC;
 FOUNDATION_EXPORT NSString * const kReIDMainTabBarController;
 

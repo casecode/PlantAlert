@@ -13,6 +13,7 @@
 NSString * const kReIDHomeVC = @"HomeVC";
 NSString * const kReIDLoginVC = @"LoginVC";
 NSString * const kReIDSignUpVC = @"SignUpVC";
+NSString * const kReIDGardenListVC = @"GardenListVC";
 NSString * const kReIDMainTabBarController = @"MainTabBarController";
 
 

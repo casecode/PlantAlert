@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wMd-zk-hmd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A379b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wMd-zk-hmd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -75,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHw-51-Qtq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="651"/>
+            <point key="canvasLocation" x="628" y="1330"/>
         </scene>
         <!--Login-->
         <scene sceneID="mln-Yy-HNp">
@@ -171,9 +171,27 @@
             <point key="canvasLocation" x="-33" y="-695"/>
         </scene>
         <!--GardenList-->
+        <scene sceneID="s1v-JW-rN4">
+            <objects>
+                <viewController storyboardIdentifier="GardenListVC" title="GardenList" id="nhw-Nh-Atm" customClass="GardenListVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bjl-yN-3Nd"/>
+                        <viewControllerLayoutGuide type="bottom" id="rQa-V4-Xqr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f5X-qB-inK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eHq-bN-7Do" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-33" y="-40"/>
+        </scene>
+        <!--Garden-->
         <scene sceneID="GQk-Ot-ekW">
             <objects>
-                <viewController storyboardIdentifier="GardenListVC" title="GardenList" id="SfS-49-tYJ" sceneMemberID="viewController">
+                <viewController title="Garden" id="SfS-49-tYJ" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZP1-7e-U84"/>
                         <viewControllerLayoutGuide type="bottom" id="dbQ-PY-90n"/>
@@ -187,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xow-KL-7ys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="355"/>
+            <point key="canvasLocation" x="628" y="657"/>
         </scene>
         <!--AddGarden-->
         <scene sceneID="Nx0-R6-F88">
