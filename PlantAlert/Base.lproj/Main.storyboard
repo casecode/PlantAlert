@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wMd-zk-hmd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A379b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wMd-zk-hmd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -170,10 +170,10 @@
             </objects>
             <point key="canvasLocation" x="-33" y="-695"/>
         </scene>
-        <!--GardenList-->
+        <!--Garden-->
         <scene sceneID="GQk-Ot-ekW">
             <objects>
-                <viewController storyboardIdentifier="GardenListVC" title="GardenList" id="SfS-49-tYJ" sceneMemberID="viewController">
+                <viewController title="Garden" id="SfS-49-tYJ" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZP1-7e-U84"/>
                         <viewControllerLayoutGuide type="bottom" id="dbQ-PY-90n"/>
@@ -225,6 +225,24 @@
             </objects>
             <point key="canvasLocation" x="-684" y="-679"/>
         </scene>
+        <!--GardenList-->
+        <scene sceneID="c4H-du-bsI">
+            <objects>
+                <viewController storyboardIdentifier="GardenListVC" title="GardenList" id="DUI-tK-3FC" customClass="GardenListVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Hh-eZ-NpD"/>
+                        <viewControllerLayoutGuide type="bottom" id="YRX-aD-Auo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i92-gt-ieR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VPE-zp-Cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-550" y="4"/>
+        </scene>
         <!--SignUp-->
         <scene sceneID="LdN-Tb-hfD">
             <objects>
@@ -252,8 +270,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKe-DS-ZGQ">
-                                <rect key="frame" x="15" y="265" width="570" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKe-DS-ZGQ">
+                                <rect key="frame" x="15" y="230" width="570" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Sign up">
@@ -275,11 +293,14 @@
                             <constraint firstItem="Vsj-3x-t0k" firstAttribute="leading" secondItem="qyU-oA-cy5" secondAttribute="leading" id="FwG-Hf-hX6"/>
                             <constraint firstItem="qyU-oA-cy5" firstAttribute="top" secondItem="Gan-hK-k7I" secondAttribute="bottom" constant="5" id="HRT-fp-azL"/>
                             <constraint firstItem="Gan-hK-k7I" firstAttribute="top" secondItem="hwd-l6-NZB" secondAttribute="bottom" constant="60" id="IIv-pk-Vyn"/>
+                            <constraint firstItem="tKe-DS-ZGQ" firstAttribute="top" secondItem="Vsj-3x-t0k" secondAttribute="bottom" constant="50" id="Jho-ZA-cfT"/>
                             <constraint firstItem="Vsj-3x-t0k" firstAttribute="top" secondItem="qyU-oA-cy5" secondAttribute="bottom" constant="5" id="Khi-aS-0LP"/>
                             <constraint firstItem="Gan-hK-k7I" firstAttribute="leading" secondItem="MQg-cH-BLA" secondAttribute="leading" constant="15" id="Lhm-6J-DbA"/>
                             <constraint firstItem="Vsj-3x-t0k" firstAttribute="leading" secondItem="Gan-hK-k7I" secondAttribute="leading" id="aX5-FJ-g79"/>
                             <constraint firstItem="Vsj-3x-t0k" firstAttribute="trailing" secondItem="Gan-hK-k7I" secondAttribute="trailing" id="afG-eD-hCA"/>
+                            <constraint firstItem="tKe-DS-ZGQ" firstAttribute="trailing" secondItem="Vsj-3x-t0k" secondAttribute="trailing" id="epw-Kh-3ob"/>
                             <constraint firstItem="Vsj-3x-t0k" firstAttribute="trailing" secondItem="qyU-oA-cy5" secondAttribute="trailing" id="f3U-CZ-TtS"/>
+                            <constraint firstItem="tKe-DS-ZGQ" firstAttribute="leading" secondItem="Vsj-3x-t0k" secondAttribute="leading" id="twB-uk-Mhf"/>
                             <constraint firstAttribute="trailing" secondItem="Gan-hK-k7I" secondAttribute="trailing" constant="15" id="yVK-Vk-Ts9"/>
                         </constraints>
                     </view>
