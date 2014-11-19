@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4850A44C1A1C624800A9BF43 /* CityAutocompleteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4850A44B1A1C624800A9BF43 /* CityAutocompleteCell.m */; };
+		4850A44E1A1C626200A9BF43 /* CityAutocompleteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4850A44D1A1C626200A9BF43 /* CityAutocompleteCell.xib */; };
 		489CADC51A1B0252006ADF7C /* PANetworkingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 489CADC41A1B0252006ADF7C /* PANetworkingService.m */; };
 		489E620E1A1A8264009B904F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 489E620D1A1A8264009B904F /* main.m */; };
 		489E62111A1A8264009B904F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 489E62101A1A8264009B904F /* AppDelegate.m */; };
@@ -38,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		2E42D98A24009DD912D3481B /* libPods-PlantAlert.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PlantAlert.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4850A44A1A1C624800A9BF43 /* CityAutocompleteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityAutocompleteCell.h; sourceTree = "<group>"; };
+		4850A44B1A1C624800A9BF43 /* CityAutocompleteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityAutocompleteCell.m; sourceTree = "<group>"; };
+		4850A44D1A1C626200A9BF43 /* CityAutocompleteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityAutocompleteCell.xib; sourceTree = "<group>"; };
 		489CADC31A1B0252006ADF7C /* PANetworkingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PANetworkingService.h; sourceTree = "<group>"; };
 		489CADC41A1B0252006ADF7C /* PANetworkingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PANetworkingService.m; sourceTree = "<group>"; };
 		489E62081A1A8264009B904F /* PlantAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +96,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4850A4491A1C61F400A9BF43 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4850A44A1A1C624800A9BF43 /* CityAutocompleteCell.h */,
+				4850A44B1A1C624800A9BF43 /* CityAutocompleteCell.m */,
+				4850A44D1A1C626200A9BF43 /* CityAutocompleteCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		489E61FF1A1A8264009B904F = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +134,7 @@
 				489E620F1A1A8264009B904F /* AppDelegate.h */,
 				489E62101A1A8264009B904F /* AppDelegate.m */,
 				92873AAC1A1A89A200E6B809 /* ViewControllers */,
+				4850A4491A1C61F400A9BF43 /* Views */,
 				92873AB31A1AACDB00E6B809 /* Services */,
 				489E621B1A1A8264009B904F /* Images.xcassets */,
 				92FEAAF31A1C0A1800BD0125 /* City.h */,
@@ -284,6 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4850A44E1A1C626200A9BF43 /* CityAutocompleteCell.xib in Resources */,
 				489E621A1A1A8264009B904F /* Main.storyboard in Resources */,
 				489E621F1A1A8264009B904F /* LaunchScreen.xib in Resources */,
 				489E621C1A1A8264009B904F /* Images.xcassets in Resources */,
@@ -341,6 +358,7 @@
 				92873AB61A1AAD6B00E6B809 /* PAConstants.m in Sources */,
 				489E62111A1A8264009B904F /* AppDelegate.m in Sources */,
 				92873AAB1A1A899800E6B809 /* HomeVC.m in Sources */,
+				4850A44C1A1C624800A9BF43 /* CityAutocompleteCell.m in Sources */,
 				92873AAF1A1AA53700E6B809 /* LoginVC.m in Sources */,
 				48C94F071A1C595A00C896BD /* AddGardenVC.m in Sources */,
 				489E620E1A1A8264009B904F /* main.m in Sources */,

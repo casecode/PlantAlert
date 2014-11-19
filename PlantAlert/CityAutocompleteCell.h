@@ -1,5 +1,5 @@
 //
-//  AddGardenVC.h
+//  CityAutocompleteCell.h
 //  PlantAlert
 //
 //  Created by Casey R White on 11/18/14.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddGardenVC : UIViewController
+@interface CityAutocompleteCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *cityNameLabel;
 
 @end
