@@ -20,8 +20,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-//    BOOL isAuthenticated = YES;
-//    NSString *storyboardId = isAuthenticated ? kReIDGardenListVC : kReIDLoginVC;
+    BOOL isAuthenticated = YES;
+    
+    if (isAuthenticated) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        id initialVC = [storyboard instantiateViewControllerWithIdentifier:kReIDGardenNavController];
+        
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        self.window.rootViewController = initialVC;
+        [self.window makeKeyAndVisible];
+    }
+    
     return YES;
 }
 

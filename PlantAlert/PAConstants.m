@@ -10,10 +10,12 @@
 
 
 // Reuse Identifiers
-NSString * const kReIDHomeVC = @"HomeVC";
+NSString * const kReIDLoginNavController = @"LoginNavController";
 NSString * const kReIDLoginVC = @"LoginVC";
 NSString * const kReIDSignUpVC = @"SignUpVC";
-NSString * const kReIDMainTabBarController = @"MainTabBarController";
+
+NSString * const kReIDGardenNavController = @"GardenNavController";
 NSString * const kReIDAddGardenVC = @"AddGardenVC";
 NSString * const kReIDGardenListVC = @"GardenListVC";
+
 NSString * const kReIDCityAutocompleteCell = @"CityAutocompleteCell";
