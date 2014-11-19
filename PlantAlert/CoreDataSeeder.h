@@ -11,6 +11,8 @@
 
 @interface CoreDataSeeder : NSObject
 
--(instancetype)initWithContext:(NSManagedObjectContext *)context;
+- (instancetype)initWithContext:(NSManagedObjectContext *)context;
+
+- (void)seedCoreData;
 
 @end
