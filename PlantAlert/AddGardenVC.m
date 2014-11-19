@@ -8,14 +8,8 @@
 
 #import "AddGardenVC.h"
 #import "PAConstants.h"
+#import "TestCity.h"
 #import "CityAutocompleteCell.h"
-
-@interface Place : NSObject
-
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, assign) BOOL selected;
-
-@end
 
 @interface AddGardenVC () <UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
@@ -34,31 +28,33 @@
     
     self.title = @"Add a Garden";
     
-    Place *place1 = [[Place alloc] init];
-    place1.name = @"Seattle, WA";
-    place1.selected = NO;
+    TestCity *testCity1 = [[TestCity alloc] init];
+    testCity1.name = @"Seattle, WA";
+    testCity1.selected = NO;
     
-    Place *place2 = [[Place alloc] init];
-    place2.name = @"Seatac, WA";
-    place2.selected = NO;
+    TestCity *testCity2 = [[TestCity alloc] init];
+    testCity2.name = @"Seatac, WA";
+    testCity2.selected = NO;
     
-    Place *place3 = [[Place alloc] init];
-    place3.name = @"San Francisco, CA";
-    place3.selected = NO;
+    TestCity *testCity3 = [[TestCity alloc] init];
+    testCity3.name = @"San Francisco, CA";
+    testCity3.selected = NO;
     
-    Place *place4 = [[Place alloc] init];
-    place4.name = @"San Jose, CA";
-    place4.selected = NO;
+    TestCity *testCity4 = [[TestCity alloc] init];
+    testCity4.name = @"San Jose, CA";
+    testCity4.selected = NO;
     
-    Place *place5 = [[Place alloc] init];
-    place5.name = @"Chicago, IL";
-    place5.selected = YES;
+    TestCity *testCity5 = [[TestCity alloc] init];
+    testCity5.name = @"Chicago, IL";
+    testCity5.selected = YES;
     
-    Place *place6 = [[Place alloc] init];
-    place6.name = @"Los Angeles, CA";
-    place6.selected = NO;
+    TestCity *testCity6 = [[TestCity alloc] init];
+    testCity6.name = @"Los Angeles, CA";
+    testCity6.selected = NO;
     
-    self.cities = [NSArray arrayWithObjects:place1, place2, place3, place4, place5, place6, nil];
+    self.cities = [NSArray arrayWithObjects:testCity1, testCity2, testCity3, testCity4, testCity5, testCity6, nil];
+    
+    self.searchResults = [NSArray array];
     
     UINib *cityAutocompleteCellNib = [UINib nibWithNibName:kReIDCityAutocompleteCell bundle:[NSBundle mainBundle]];
     [self.tableView registerNib:cityAutocompleteCellNib forCellReuseIdentifier:kReIDCityAutocompleteCell];
@@ -70,6 +66,7 @@
     
     self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0);
     self.tableView.tableHeaderView = self.searchController.searchBar;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,7 +82,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.searchController.active) {
-        return self.cities.count;
+        return self.searchResults.count;
     }
     else {
         return 0;
@@ -94,7 +91,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CityAutocompleteCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kReIDCityAutocompleteCell];
-    cell.cityNameLabel.text = self.searchResults[indexPath.row];
+    TestCity *city = self.searchResults[indexPath.row];
+    cell.cityNameLabel.text = city.name;
     return cell;
 }
 

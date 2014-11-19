@@ -18,6 +18,7 @@
 		489E621F1A1A8264009B904F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 489E621D1A1A8264009B904F /* LaunchScreen.xib */; };
 		489E622B1A1A8264009B904F /* PlantAlertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 489E622A1A1A8264009B904F /* PlantAlertTests.m */; };
 		48C94F071A1C595A00C896BD /* AddGardenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C94F061A1C595A00C896BD /* AddGardenVC.m */; };
+		48F84AD61A1C77EF00956309 /* TestCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F84AD51A1C77EF00956309 /* TestCity.m */; };
 		5583DBCE1848EC793B409120 /* libPods-PlantAlert.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E42D98A24009DD912D3481B /* libPods-PlantAlert.a */; };
 		92873AAB1A1A899800E6B809 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AAA1A1A899800E6B809 /* HomeVC.m */; };
 		92873AAF1A1AA53700E6B809 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AAE1A1AA53700E6B809 /* LoginVC.m */; };
@@ -59,6 +60,8 @@
 		489E622A1A1A8264009B904F /* PlantAlertTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlantAlertTests.m; sourceTree = "<group>"; };
 		48C94F051A1C595A00C896BD /* AddGardenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGardenVC.h; sourceTree = "<group>"; };
 		48C94F061A1C595A00C896BD /* AddGardenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGardenVC.m; sourceTree = "<group>"; };
+		48F84AD41A1C77EF00956309 /* TestCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCity.h; sourceTree = "<group>"; };
+		48F84AD51A1C77EF00956309 /* TestCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCity.m; sourceTree = "<group>"; };
 		4E32808D5449CBE4CE6F533A /* Pods-PlantAlert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantAlert.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlantAlert/Pods-PlantAlert.release.xcconfig"; sourceTree = "<group>"; };
 		50B034FB7A876065F98A43D3 /* Pods-PlantAlert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantAlert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlantAlert/Pods-PlantAlert.debug.xcconfig"; sourceTree = "<group>"; };
 		92873AA91A1A899800E6B809 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
@@ -135,6 +138,7 @@
 				489E62101A1A8264009B904F /* AppDelegate.m */,
 				92873AAC1A1A89A200E6B809 /* ViewControllers */,
 				4850A4491A1C61F400A9BF43 /* Views */,
+				48F84AD31A1C77BE00956309 /* Models */,
 				92873AB31A1AACDB00E6B809 /* Services */,
 				489E621B1A1A8264009B904F /* Images.xcassets */,
 				92FEAAF31A1C0A1800BD0125 /* City.h */,
@@ -171,6 +175,15 @@
 				489E62291A1A8264009B904F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		48F84AD31A1C77BE00956309 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				48F84AD41A1C77EF00956309 /* TestCity.h */,
+				48F84AD51A1C77EF00956309 /* TestCity.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		7446519CDA861726F2E4ED35 /* Frameworks */ = {
@@ -358,6 +371,7 @@
 				92873AB61A1AAD6B00E6B809 /* PAConstants.m in Sources */,
 				489E62111A1A8264009B904F /* AppDelegate.m in Sources */,
 				92873AAB1A1A899800E6B809 /* HomeVC.m in Sources */,
+				48F84AD61A1C77EF00956309 /* TestCity.m in Sources */,
 				4850A44C1A1C624800A9BF43 /* CityAutocompleteCell.m in Sources */,
 				92873AAF1A1AA53700E6B809 /* LoginVC.m in Sources */,
 				48C94F071A1C595A00C896BD /* AddGardenVC.m in Sources */,

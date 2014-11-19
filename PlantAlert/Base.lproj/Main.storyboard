@@ -203,7 +203,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Je2-40-0fx">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="9fK-hN-cPi" id="pYR-Z2-Gcg"/>
@@ -213,13 +213,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dTJ-Mt-pbB" firstAttribute="top" secondItem="Je2-40-0fx" secondAttribute="bottom" id="0oW-e4-rvd"/>
-                            <constraint firstItem="Je2-40-0fx" firstAttribute="leading" secondItem="pbL-2y-FiI" secondAttribute="leadingMargin" constant="-16" id="M0d-0b-wQP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Je2-40-0fx" secondAttribute="trailing" constant="-16" id="MFQ-Kl-Jbh"/>
-                            <constraint firstItem="Je2-40-0fx" firstAttribute="top" secondItem="D5p-WC-eo9" secondAttribute="bottom" id="SBb-oX-7Oa"/>
+                            <constraint firstItem="dTJ-Mt-pbB" firstAttribute="top" secondItem="Je2-40-0fx" secondAttribute="bottom" id="Ajz-pN-zJ0"/>
+                            <constraint firstItem="Je2-40-0fx" firstAttribute="leading" secondItem="pbL-2y-FiI" secondAttribute="leadingMargin" constant="-16" id="VsQ-sd-StM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Je2-40-0fx" secondAttribute="trailing" constant="-16" id="onc-Jc-IIk"/>
+                            <constraint firstItem="Je2-40-0fx" firstAttribute="top" secondItem="pbL-2y-FiI" secondAttribute="topMargin" id="veC-Kz-Qyq"/>
                         </constraints>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="Je2-40-0fx" id="M7V-3I-ixI"/>
                     </connections>
