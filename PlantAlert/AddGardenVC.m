@@ -42,13 +42,16 @@
     
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
-    self.searchController.dimsBackgroundDuringPresentation = YES;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
     self.searchController.hidesNavigationBarDuringPresentation = NO;
     
     self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0);
     self.searchController.searchBar.placeholder = @"Search by city";
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,6 +99,18 @@
     City *city = self.searchResults[indexPath.row];
     cell.cityNameLabel.text = city.name;
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.searchController setActive:NO];
+    City *selectedCity = self.cities[indexPath.row];
+    NSLog(@"%@", selectedCity.name);
+    if (self.citySelectionDelegate) {
+        [self.citySelectionDelegate citySelected:selectedCity];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - UISearchResultsUpdating

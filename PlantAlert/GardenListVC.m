@@ -12,9 +12,10 @@
 #import "City.h"
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
+#import "AddGardenVC.h"
+#import "CitySelectionDelegate.h"
 
-
-@interface GardenListVC () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
+@interface GardenListVC () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, CitySelectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -35,7 +36,9 @@
     [self.tableView registerNib:selectedCityCellNib forCellReuseIdentifier:kReIDSelectedCityCell];
     
     self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-
+    
+    UIBarButtonItem *addGardenItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGarden:)];
+    self.navigationItem.rightBarButtonItem = addGardenItem;
 }
 
 
@@ -55,7 +58,14 @@
     return cell;
 }
 
+- (IBAction)addGarden:(id)sender {
+    AddGardenVC *addGardenVC = [self.storyboard instantiateViewControllerWithIdentifier:kReIDAddGardenVC];
+    addGardenVC.citySelectionDelegate = self;
+    [self.navigationController pushViewController:addGardenVC animated:YES];
+}
 
-
+- (void)citySelected:(City *)city {
+    NSLog(@"%@ was selected", city.name);
+}
 
 @end

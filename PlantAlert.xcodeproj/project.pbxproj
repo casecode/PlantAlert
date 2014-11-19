@@ -44,6 +44,7 @@
 		4850A44A1A1C624800A9BF43 /* CityAutocompleteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityAutocompleteCell.h; sourceTree = "<group>"; };
 		4850A44B1A1C624800A9BF43 /* CityAutocompleteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityAutocompleteCell.m; sourceTree = "<group>"; };
 		4850A44D1A1C626200A9BF43 /* CityAutocompleteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityAutocompleteCell.xib; sourceTree = "<group>"; };
+		4892487E1A1D30E9007C4BD4 /* CitySelectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitySelectionDelegate.h; sourceTree = "<group>"; };
 		489CADC31A1B0252006ADF7C /* PANetworkingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PANetworkingService.h; sourceTree = "<group>"; };
 		489CADC41A1B0252006ADF7C /* PANetworkingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PANetworkingService.m; sourceTree = "<group>"; };
 		489E62081A1A8264009B904F /* PlantAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +112,14 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		4892487D1A1D3088007C4BD4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4892487E1A1D30E9007C4BD4 /* CitySelectionDelegate.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		489E61FF1A1A8264009B904F = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +149,7 @@
 				489E62101A1A8264009B904F /* AppDelegate.m */,
 				92873AAC1A1A89A200E6B809 /* ViewControllers */,
 				4850A4491A1C61F400A9BF43 /* Views */,
+				4892487D1A1D3088007C4BD4 /* Protocols */,
 				92873AB31A1AACDB00E6B809 /* Services */,
 				489E621B1A1A8264009B904F /* Images.xcassets */,
 				92FEAAF31A1C0A1800BD0125 /* City.h */,
