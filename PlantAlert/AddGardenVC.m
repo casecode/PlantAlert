@@ -8,11 +8,11 @@
 
 #import "AddGardenVC.h"
 #import "PAConstants.h"
-#import "TestCity.h"
 #import "CityAutocompleteCell.h"
 #import <CoreData/CoreData.h>
 #import "CoreDataSeeder.h"
 #import "AppDelegate.h"
+#import "City.h"
 
 @interface AddGardenVC () <UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
@@ -93,7 +93,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CityAutocompleteCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kReIDCityAutocompleteCell];
-    TestCity *city = self.searchResults[indexPath.row];
+    City *city = self.searchResults[indexPath.row];
     cell.cityNameLabel.text = city.name;
     return cell;
 }
