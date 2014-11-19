@@ -65,6 +65,7 @@
     self.searchController.hidesNavigationBarDuringPresentation = NO;
     
     self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0);
+    self.searchController.searchBar.placeholder = @"Search by city";
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
