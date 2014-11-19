@@ -52,6 +52,13 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    self.searchController.searchBar.delegate = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.searchController setActive:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -104,9 +111,9 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    City *selectedCity = self.searchResults[indexPath.row];
     [self.searchController setActive:NO];
-    City *selectedCity = self.cities[indexPath.row];
-    NSLog(@"%@", selectedCity.name);
+    
     if (self.citySelectionDelegate) {
         [self.citySelectionDelegate citySelected:selectedCity];
     }
@@ -124,6 +131,17 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(name BEGINSWITH[cd] %@)", searchString];
     self.searchResults = [self.cities filteredArrayUsingPredicate:predicate];
     [self.tableView reloadData];
+}
+
+#pragma mark - UISearchBarDelegate
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    self.navigationItem.hidesBackButton = YES;
+    return YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    self.navigationItem.hidesBackButton = NO;
 }
 
 @end
