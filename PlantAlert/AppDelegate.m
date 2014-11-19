@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "PAConstants.h"
+#import "PANetworkingService.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+//    BOOL isAuthenticated = YES;
+//    NSString *storyboardId = isAuthenticated ? kReIDGardenListVC : kReIDLoginVC;
     return YES;
 }
 

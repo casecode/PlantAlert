@@ -46,6 +46,7 @@
 }
 
 - (IBAction)signUpPressed:(id)sender {
+    [self resignFirstResponder];
     
     NSString *errorMessage = nil;
     
@@ -58,7 +59,7 @@
         errorMessage = @"Your password must be at least 8 characters long";
         self.passwordTextField.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
     }
-    else if (self.passwordTextField.text != self.confirmPasswordTextField.text) {
+    else if (![self.passwordTextField.text isEqualToString:self.confirmPasswordTextField.text]) {
         errorMessage = @"Password and password confirmation must match";
         self.passwordTextField.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
         self.confirmPasswordTextField.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
@@ -79,17 +80,20 @@
                                          atPosition:TSMessageNotificationPositionTop
                                canBeDismissedByUser:YES];
     }
-
-    NSDictionary *userData = @{@"email"     : _emailTextField.text,
-                               @"password"  : _passwordTextField.text};
-    [[self apiService] signUpWithUserData:userData completion:^(NSString *token, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@", [error localizedDescription]);
-        }
-        else {
-            NSLog(@"Token: %@", token);
-        }
-    }];
+    else {
+        NSString *deviceID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+        NSDictionary *userData = @{@"email"     : _emailTextField.text,
+                                   @"password"  : _passwordTextField.text,
+                                   @"deviceID"  : deviceID};
+        [[self apiService] signUpWithUserData:userData completion:^(NSString *token, NSError *error) {
+            if (error) {
+                NSLog(@"Error: %@", [error localizedDescription]);
+            }
+            else {
+                NSLog(@"Token: %@", token);
+            }
+        }];
+    }
 }
 
 @end

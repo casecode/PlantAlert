@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell alpha="0.74999999999999978" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityAutocompleteCell" id="osD-nv-t4V" customClass="CityAutocompleteCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="osD-nv-t4V" id="5Xs-RZ-yKy">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYw-a4-Ntt">
+                        <rect key="frame" x="16" y="6" width="72" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="PYw-a4-Ntt" firstAttribute="leading" secondItem="5Xs-RZ-yKy" secondAttribute="leadingMargin" constant="8" id="5gI-lz-01f"/>
+                    <constraint firstAttribute="centerY" secondItem="PYw-a4-Ntt" secondAttribute="centerY" id="y5o-A0-IS4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="cityNameLabel" destination="PYw-a4-Ntt" id="x6k-XP-pLJ"/>
+            </connections>
+            <point key="canvasLocation" x="241" y="175"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -27,6 +27,11 @@
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
     [self presentViewController:navController animated:YES completion:nil];
     
+//    // Temporary segue to test AddGardenVC - To be removed
+//    id addGardenVC = [self.storyboard instantiateViewControllerWithIdentifier:kReIDAddGardenVC];
+//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addGardenVC];
+//    [self presentViewController:navController animated:YES completion:nil];
+    
 }
 
 
