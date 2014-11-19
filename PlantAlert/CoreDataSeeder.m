@@ -18,14 +18,14 @@
 
 @implementation CoreDataSeeder
 
--(instancetype)initWithContext:(NSManagedObjectContext *)context {
+- (instancetype)initWithContext:(NSManagedObjectContext *)context {
     if (self = [super init]) {
         self.managedObjectContext = context;
     }
     return self;
 }
 
--(void) seedCoreData {
+- (void)seedCoreData {
     NSArray *cities = [[NSArray alloc]initWithObjects:
                        @"New York, NY",
                        @"Los Angeles, CA",
