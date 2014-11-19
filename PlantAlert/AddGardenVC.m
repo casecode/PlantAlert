@@ -68,6 +68,8 @@
 
 - (void)fetchUnselectedCities {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"City"];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    fetchRequest.sortDescriptors = @[sortDescriptor];
     NSError *error = nil;
     NSArray *fetchedCities = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
