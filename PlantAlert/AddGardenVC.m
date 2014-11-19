@@ -10,11 +10,15 @@
 #import "PAConstants.h"
 #import "TestCity.h"
 #import "CityAutocompleteCell.h"
+#import <CoreData/CoreData.h>
+#import "CoreDataSeeder.h"
+#import "AppDelegate.h"
 
 @interface AddGardenVC () <UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) UISearchController *searchController;
 @property (strong, nonatomic) NSArray *cities;
 @property (strong, nonatomic) NSArray *searchResults;
@@ -28,36 +32,13 @@
     
     self.title = @"Add a Garden";
     
-    TestCity *testCity1 = [[TestCity alloc] init];
-    testCity1.name = @"Seattle, WA";
-    testCity1.selected = NO;
-    
-    TestCity *testCity2 = [[TestCity alloc] init];
-    testCity2.name = @"Seatac, WA";
-    testCity2.selected = NO;
-    
-    TestCity *testCity3 = [[TestCity alloc] init];
-    testCity3.name = @"San Francisco, CA";
-    testCity3.selected = NO;
-    
-    TestCity *testCity4 = [[TestCity alloc] init];
-    testCity4.name = @"San Jose, CA";
-    testCity4.selected = NO;
-    
-    TestCity *testCity5 = [[TestCity alloc] init];
-    testCity5.name = @"Chicago, IL";
-    testCity5.selected = YES;
-    
-    TestCity *testCity6 = [[TestCity alloc] init];
-    testCity6.name = @"Los Angeles, CA";
-    testCity6.selected = NO;
-    
-    self.cities = [NSArray arrayWithObjects:testCity1, testCity2, testCity3, testCity4, testCity5, testCity6, nil];
-    
-    self.searchResults = [NSArray array];
-    
     UINib *cityAutocompleteCellNib = [UINib nibWithNibName:kReIDCityAutocompleteCell bundle:[NSBundle mainBundle]];
     [self.tableView registerNib:cityAutocompleteCellNib forCellReuseIdentifier:kReIDCityAutocompleteCell];
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = appDelegate.managedObjectContext;
+    
+    [self fetchUnselectedCities];
     
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
@@ -73,6 +54,26 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)fetchUnselectedCities {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"City"];
+    NSError *error = nil;
+    NSArray *fetchedCities = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if (error) {
+        NSLog(@"Error executing fetch request: %@", [error localizedDescription]);
+    }
+    else {
+        if (fetchedCities.count == 0) {
+            CoreDataSeeder *seeder = [[CoreDataSeeder alloc] initWithContext:self.managedObjectContext];
+            [seeder seedCoreData];
+            fetchedCities = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        }
+        
+        NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"selected == %@", [NSNumber numberWithBool:NO]];
+        self.cities = [fetchedCities filteredArrayUsingPredicate:filterPredicate];
+    }
 }
 
 #pragma mark - UITableViewDataSource
