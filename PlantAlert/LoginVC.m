@@ -30,8 +30,9 @@
 }
 
 - (IBAction)LoginPressed:(id)sender {
-    id mainTabBar = [self.storyboard instantiateViewControllerWithIdentifier:kReIDMainTabBarController];
-    [self presentViewController:mainTabBar animated:YES completion:nil];
+    id gardenListVC = [self.storyboard instantiateViewControllerWithIdentifier:kReIDGardenListVC];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:gardenListVC];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (IBAction)SignUpPressed:(id)sender {

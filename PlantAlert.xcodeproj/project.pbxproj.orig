@@ -15,15 +15,21 @@
 		489E621C1A1A8264009B904F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 489E621B1A1A8264009B904F /* Images.xcassets */; };
 		489E621F1A1A8264009B904F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 489E621D1A1A8264009B904F /* LaunchScreen.xib */; };
 		489E622B1A1A8264009B904F /* PlantAlertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 489E622A1A1A8264009B904F /* PlantAlertTests.m */; };
+<<<<<<< HEAD
 		48C94F071A1C595A00C896BD /* AddGardenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C94F061A1C595A00C896BD /* AddGardenVC.m */; };
+=======
+>>>>>>> master
 		5583DBCE1848EC793B409120 /* libPods-PlantAlert.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E42D98A24009DD912D3481B /* libPods-PlantAlert.a */; };
 		92873AAB1A1A899800E6B809 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AAA1A1A899800E6B809 /* HomeVC.m */; };
 		92873AAF1A1AA53700E6B809 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AAE1A1AA53700E6B809 /* LoginVC.m */; };
 		92873AB21A1AA54E00E6B809 /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AB11A1AA54E00E6B809 /* SignUpVC.m */; };
 		92873AB61A1AAD6B00E6B809 /* PAConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 92873AB51A1AAD6B00E6B809 /* PAConstants.m */; };
+<<<<<<< HEAD
+=======
 		92FEAAF51A1C0A1800BD0125 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FEAAF41A1C0A1800BD0125 /* City.m */; };
 		92FEAAF81A1C0AB100BD0125 /* CoreDataSeeder.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FEAAF71A1C0AB100BD0125 /* CoreDataSeeder.m */; };
 		92FEAAFB1A1C0D7F00BD0125 /* GardenListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FEAAFA1A1C0D7F00BD0125 /* GardenListVC.m */; };
+>>>>>>> master
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +58,11 @@
 		489E62241A1A8264009B904F /* PlantAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlantAlertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		489E62291A1A8264009B904F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		489E622A1A1A8264009B904F /* PlantAlertTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlantAlertTests.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		48C94F051A1C595A00C896BD /* AddGardenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGardenVC.h; sourceTree = "<group>"; };
 		48C94F061A1C595A00C896BD /* AddGardenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGardenVC.m; sourceTree = "<group>"; };
+=======
+>>>>>>> master
 		4E32808D5449CBE4CE6F533A /* Pods-PlantAlert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantAlert.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlantAlert/Pods-PlantAlert.release.xcconfig"; sourceTree = "<group>"; };
 		50B034FB7A876065F98A43D3 /* Pods-PlantAlert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantAlert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlantAlert/Pods-PlantAlert.debug.xcconfig"; sourceTree = "<group>"; };
 		92873AA91A1A899800E6B809 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
@@ -64,12 +73,15 @@
 		92873AB11A1AA54E00E6B809 /* SignUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpVC.m; sourceTree = "<group>"; };
 		92873AB41A1AAD6B00E6B809 /* PAConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAConstants.h; sourceTree = "<group>"; };
 		92873AB51A1AAD6B00E6B809 /* PAConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAConstants.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
 		92FEAAF31A1C0A1800BD0125 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
 		92FEAAF41A1C0A1800BD0125 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		92FEAAF61A1C0AB100BD0125 /* CoreDataSeeder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataSeeder.h; sourceTree = "<group>"; };
 		92FEAAF71A1C0AB100BD0125 /* CoreDataSeeder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataSeeder.m; sourceTree = "<group>"; };
 		92FEAAF91A1C0D7F00BD0125 /* GardenListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GardenListVC.h; sourceTree = "<group>"; };
 		92FEAAFA1A1C0D7F00BD0125 /* GardenListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GardenListVC.m; sourceTree = "<group>"; };
+>>>>>>> master
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +133,11 @@
 				92873AAC1A1A89A200E6B809 /* ViewControllers */,
 				92873AB31A1AACDB00E6B809 /* Services */,
 				489E621B1A1A8264009B904F /* Images.xcassets */,
+<<<<<<< HEAD
+=======
 				92FEAAF31A1C0A1800BD0125 /* City.h */,
 				92FEAAF41A1C0A1800BD0125 /* City.m */,
+>>>>>>> master
 				489E62181A1A8264009B904F /* Main.storyboard */,
 				489E621D1A1A8264009B904F /* LaunchScreen.xib */,
 				489E62121A1A8264009B904F /* PlantAlert.xcdatamodeld */,
@@ -174,10 +189,13 @@
 				92873AAE1A1AA53700E6B809 /* LoginVC.m */,
 				92873AB01A1AA54E00E6B809 /* SignUpVC.h */,
 				92873AB11A1AA54E00E6B809 /* SignUpVC.m */,
+<<<<<<< HEAD
 				48C94F051A1C595A00C896BD /* AddGardenVC.h */,
 				48C94F061A1C595A00C896BD /* AddGardenVC.m */,
+=======
 				92FEAAF91A1C0D7F00BD0125 /* GardenListVC.h */,
 				92FEAAFA1A1C0D7F00BD0125 /* GardenListVC.m */,
+>>>>>>> master
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -187,8 +205,11 @@
 			children = (
 				489CADC31A1B0252006ADF7C /* PANetworkingService.h */,
 				489CADC41A1B0252006ADF7C /* PANetworkingService.m */,
+<<<<<<< HEAD
+=======
 				92FEAAF61A1C0AB100BD0125 /* CoreDataSeeder.h */,
 				92FEAAF71A1C0AB100BD0125 /* CoreDataSeeder.m */,
+>>>>>>> master
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -342,13 +363,19 @@
 				489E62111A1A8264009B904F /* AppDelegate.m in Sources */,
 				92873AAB1A1A899800E6B809 /* HomeVC.m in Sources */,
 				92873AAF1A1AA53700E6B809 /* LoginVC.m in Sources */,
+<<<<<<< HEAD
 				48C94F071A1C595A00C896BD /* AddGardenVC.m in Sources */,
+				489E620E1A1A8264009B904F /* main.m in Sources */,
+				489E62141A1A8264009B904F /* PlantAlert.xcdatamodeld in Sources */,
+				489CADC51A1B0252006ADF7C /* PANetworkingService.m in Sources */,
+=======
 				489E620E1A1A8264009B904F /* main.m in Sources */,
 				489E62141A1A8264009B904F /* PlantAlert.xcdatamodeld in Sources */,
 				92FEAAFB1A1C0D7F00BD0125 /* GardenListVC.m in Sources */,
 				489CADC51A1B0252006ADF7C /* PANetworkingService.m in Sources */,
 				92FEAAF81A1C0AB100BD0125 /* CoreDataSeeder.m in Sources */,
 				92FEAAF51A1C0A1800BD0125 /* City.m in Sources */,
+>>>>>>> master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

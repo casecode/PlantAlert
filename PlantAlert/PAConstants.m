@@ -15,5 +15,4 @@ NSString * const kReIDLoginVC = @"LoginVC";
 NSString * const kReIDSignUpVC = @"SignUpVC";
 NSString * const kReIDMainTabBarController = @"MainTabBarController";
 NSString * const kReIDAddGardenVC = @"AddGardenVC";
-
-
+NSString * const kReIDGardenListVC = @"GardenListVC";
