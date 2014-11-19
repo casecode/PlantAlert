@@ -236,7 +236,19 @@
                     <view key="view" contentMode="scaleToFill" id="i92-gt-ieR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TCh-pe-mDr">
+                                <rect key="frame" x="0.0" y="30" width="600" height="570"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YRX-aD-Auo" firstAttribute="top" secondItem="TCh-pe-mDr" secondAttribute="bottom" id="AeA-49-hqX"/>
+                            <constraint firstItem="TCh-pe-mDr" firstAttribute="leading" secondItem="i92-gt-ieR" secondAttribute="leading" id="KOq-WQ-28U"/>
+                            <constraint firstItem="TCh-pe-mDr" firstAttribute="top" secondItem="i92-gt-ieR" secondAttribute="top" constant="30" id="nKV-Qa-8BV"/>
+                            <constraint firstAttribute="trailing" secondItem="TCh-pe-mDr" secondAttribute="trailing" id="xxE-zA-rSk"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VPE-zp-Cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
