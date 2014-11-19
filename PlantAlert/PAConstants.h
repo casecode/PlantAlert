@@ -20,3 +20,4 @@ FOUNDATION_EXPORT NSString * const kReIDGardenListVC;
 FOUNDATION_EXPORT NSString * const kReIDAddGardenVC;
 
 FOUNDATION_EXPORT NSString * const kReIDCityAutocompleteCell;
+FOUNDATION_EXPORT NSString * const kReIDSelectedCityCell;

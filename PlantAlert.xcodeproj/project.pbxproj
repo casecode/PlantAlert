@@ -26,6 +26,8 @@
 		92FEAAF51A1C0A1800BD0125 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FEAAF41A1C0A1800BD0125 /* City.m */; };
 		92FEAAF81A1C0AB100BD0125 /* CoreDataSeeder.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FEAAF71A1C0AB100BD0125 /* CoreDataSeeder.m */; };
 		92FEAAFB1A1C0D7F00BD0125 /* GardenListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FEAAFA1A1C0D7F00BD0125 /* GardenListVC.m */; };
+		92FEAAFF1A1D207A00BD0125 /* SelectedCityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92FEAAFE1A1D207A00BD0125 /* SelectedCityCell.xib */; };
+		92FEAB051A1D230700BD0125 /* SelectedCityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FEAB041A1D230700BD0125 /* SelectedCityCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,9 @@
 		92FEAAF71A1C0AB100BD0125 /* CoreDataSeeder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataSeeder.m; sourceTree = "<group>"; };
 		92FEAAF91A1C0D7F00BD0125 /* GardenListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GardenListVC.h; sourceTree = "<group>"; };
 		92FEAAFA1A1C0D7F00BD0125 /* GardenListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GardenListVC.m; sourceTree = "<group>"; };
+		92FEAAFE1A1D207A00BD0125 /* SelectedCityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedCityCell.xib; sourceTree = "<group>"; };
+		92FEAB031A1D230700BD0125 /* SelectedCityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCityCell.h; sourceTree = "<group>"; };
+		92FEAB041A1D230700BD0125 /* SelectedCityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCityCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +107,9 @@
 				4850A44A1A1C624800A9BF43 /* CityAutocompleteCell.h */,
 				4850A44B1A1C624800A9BF43 /* CityAutocompleteCell.m */,
 				4850A44D1A1C626200A9BF43 /* CityAutocompleteCell.xib */,
+				92FEAB031A1D230700BD0125 /* SelectedCityCell.h */,
+				92FEAB041A1D230700BD0125 /* SelectedCityCell.m */,
+				92FEAAFE1A1D207A00BD0125 /* SelectedCityCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -309,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4850A44E1A1C626200A9BF43 /* CityAutocompleteCell.xib in Resources */,
+				92FEAAFF1A1D207A00BD0125 /* SelectedCityCell.xib in Resources */,
 				489E621A1A1A8264009B904F /* Main.storyboard in Resources */,
 				489E621F1A1A8264009B904F /* LaunchScreen.xib in Resources */,
 				489E621C1A1A8264009B904F /* Images.xcassets in Resources */,
@@ -373,6 +382,7 @@
 				489E62141A1A8264009B904F /* PlantAlert.xcdatamodeld in Sources */,
 				92FEAAFB1A1C0D7F00BD0125 /* GardenListVC.m in Sources */,
 				489CADC51A1B0252006ADF7C /* PANetworkingService.m in Sources */,
+				92FEAB051A1D230700BD0125 /* SelectedCityCell.m in Sources */,
 				92FEAAF81A1C0AB100BD0125 /* CoreDataSeeder.m in Sources */,
 				92FEAAF51A1C0A1800BD0125 /* City.m in Sources */,
 			);

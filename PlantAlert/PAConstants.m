@@ -19,3 +19,5 @@ NSString * const kReIDAddGardenVC = @"AddGardenVC";
 NSString * const kReIDGardenListVC = @"GardenListVC";
 
 NSString * const kReIDCityAutocompleteCell = @"CityAutocompleteCell";
+NSString * const kReIDSelectedCityCell = @"SelectedCityCell";
+

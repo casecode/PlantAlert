@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="W4Q-sW-8Dz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A379b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="W4Q-sW-8Dz">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -149,19 +149,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TCh-pe-mDr">
-                                <rect key="frame" x="0.0" y="30" width="600" height="570"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="DUI-tK-3FC" id="7Cl-0h-hhE"/>
+                                    <outlet property="delegate" destination="DUI-tK-3FC" id="VN7-Ff-XJF"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YRX-aD-Auo" firstAttribute="top" secondItem="TCh-pe-mDr" secondAttribute="bottom" id="AeA-49-hqX"/>
                             <constraint firstItem="TCh-pe-mDr" firstAttribute="leading" secondItem="i92-gt-ieR" secondAttribute="leading" id="KOq-WQ-28U"/>
-                            <constraint firstItem="TCh-pe-mDr" firstAttribute="top" secondItem="i92-gt-ieR" secondAttribute="top" constant="30" id="nKV-Qa-8BV"/>
+                            <constraint firstItem="TCh-pe-mDr" firstAttribute="top" secondItem="i92-gt-ieR" secondAttribute="top" id="nKV-Qa-8BV"/>
                             <constraint firstAttribute="trailing" secondItem="TCh-pe-mDr" secondAttribute="trailing" id="xxE-zA-rSk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EsA-bv-OlJ"/>
+                    <connections>
+                        <outlet property="tableView" destination="TCh-pe-mDr" id="Y6Q-q4-Blo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VPE-zp-Cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
