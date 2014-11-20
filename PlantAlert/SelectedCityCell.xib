@@ -6,23 +6,28 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectedCityCell" id="K3i-pj-gdd" customClass="SelectedCityCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="SelectedCityCell" id="K3i-pj-gdd" customClass="SelectedCityCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K3i-pj-gdd" id="8xD-MG-f9v">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFa-sF-ALl">
-                        <rect key="frame" x="119" y="11" width="81" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFa-sF-ALl">
+                        <rect key="frame" x="15" y="9.5" width="96" height="24"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="WFa-sF-ALl" firstAttribute="leading" secondItem="8xD-MG-f9v" secondAttribute="leading" constant="15" id="Jsc-S3-OKX"/>
                     <constraint firstAttribute="centerY" secondItem="WFa-sF-ALl" secondAttribute="centerY" id="XkM-Yo-G4F"/>
                     <constraint firstAttribute="centerX" secondItem="WFa-sF-ALl" secondAttribute="centerX" id="qlu-dd-yKw"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="qlu-dd-yKw"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="cityNameLabel" destination="WFa-sF-ALl" id="bf4-QF-8kN"/>

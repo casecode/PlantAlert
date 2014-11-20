@@ -27,6 +27,11 @@
     if (self.navigationController) {
         self.title = @"Login";
     }
+    
+    //background image
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"plantAlertBg.jpg"]];
+    
+
 }
 
 - (IBAction)LoginPressed:(id)sender {

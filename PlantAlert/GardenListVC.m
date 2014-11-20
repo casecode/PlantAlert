@@ -30,19 +30,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"GardenList";
+    self.title = @"Garden List";
+
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"plantAlertBg.jpg"]];
+    [tempImageView setFrame:self.tableView.frame];
+    
+    self.tableView.backgroundView = tempImageView;
+    
     
     UINib *selectedCityCellNib = [UINib nibWithNibName:kReIDSelectedCityCell bundle:[NSBundle mainBundle]];
     [self.tableView registerNib:selectedCityCellNib forCellReuseIdentifier:kReIDSelectedCityCell];
     
     self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
     
-    UIBarButtonItem *addGardenItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGarden:)];
-    self.navigationItem.rightBarButtonItem = addGardenItem;
+    
+    // TEST: add right barbutton with image
+    UIImage *image = [UIImage imageNamed:@"addGreen2"];
+    CGRect frame = CGRectMake(0, 0, 22, 22);
+    UIButton* button = [[UIButton alloc] initWithFrame:frame];
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(addGarden:) forControlEvents:UIControlEventTouchDown];
+    UIBarButtonItem* addGardenItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    [self.navigationItem setRightBarButtonItem:addGardenItem];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
->>>>>>> master
+
 
 #pragma mark - Fetched results controller
 
@@ -81,7 +94,7 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return 80;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -91,6 +104,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SelectedCityCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kReIDSelectedCityCell];
     [self configureCell:cell atIndexPath:indexPath];
+    
+    cell.opaque = NO;
+    cell.contentView.backgroundColor = [UIColor whiteColor];
+    cell.contentView.opaque = NO;
+    cell.contentView.alpha = 0.7;
+    
     return cell;
 }
 
@@ -105,6 +124,10 @@
     return YES;
 }
 
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
@@ -117,6 +140,25 @@
         }
     }
 }
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setBackgroundColor:[UIColor clearColor]];
+    //remove the white space before seperator line
+    if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [tableView setLayoutMargins:UIEdgeInsetsZero];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+
+
+
 
 #pragma mark - NSFetchedResultsControllerDelegate
 

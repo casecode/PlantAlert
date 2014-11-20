@@ -36,8 +36,15 @@
     
     if (self.navigationController) {
         self.title = @"Sign Up";
-        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(navigateBack:)];
-        self.navigationItem.leftBarButtonItem = backButton;
+        
+     
+        UIImage *image = [UIImage imageNamed:@"leftGreen"];
+        CGRect frame = CGRectMake(0, 0, 22, 22);
+        UIButton* button = [[UIButton alloc] initWithFrame:frame];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(navigateBack:) forControlEvents:UIControlEventTouchDown];
+        UIBarButtonItem* backButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+        [self.navigationItem setLeftBarButtonItem:backButton];
     }
 }
 

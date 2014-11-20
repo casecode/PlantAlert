@@ -31,6 +31,16 @@
     [super viewDidLoad];
     
     self.title = @"Add a Garden";
+    // TEST: add left barbutton with image
+    UIImage *image = [UIImage imageNamed:@"leftGreen1"];
+    CGRect frame = CGRectMake(0, 0, 22, 22);
+    UIButton* button = [[UIButton alloc] initWithFrame:frame];
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(navigateBack:) forControlEvents:UIControlEventTouchDown];
+    UIBarButtonItem* addGardenItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    [self.navigationItem setLeftBarButtonItem:addGardenItem];
+
+    
     
     UINib *cityAutocompleteCellNib = [UINib nibWithNibName:kReIDCityAutocompleteCell bundle:[NSBundle mainBundle]];
     [self.tableView registerNib:cityAutocompleteCellNib forCellReuseIdentifier:kReIDCityAutocompleteCell];
@@ -86,6 +96,10 @@
         NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"selected == %@", [NSNumber numberWithBool:NO]];
         self.cities = [fetchedCities filteredArrayUsingPredicate:filterPredicate];
     }
+}
+
+- (IBAction)navigateBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - UITableViewDataSource
