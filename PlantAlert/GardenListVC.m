@@ -42,6 +42,7 @@
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
+>>>>>>> master
 
 #pragma mark - Fetched results controller
 
@@ -76,6 +77,8 @@
 }
 
 #pragma mark - UITableViewDataSource
+
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60;
