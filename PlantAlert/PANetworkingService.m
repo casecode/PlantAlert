@@ -7,8 +7,25 @@
 //
 
 #import "PANetworkingService.h"
+#import "PAConstants.h"
 
-static NSString * const kAPIDomain = @"http://127.0.0.1:3000/test";
+static NSString * const kAPIDomain = @"http://127.0.0.1:3000";
+
+// Paths
+static NSString * const kAPIPathUsers = @"/api/users";
+static NSString * const kAPIPathAddCity = @"/api/addcity";
+static NSString * const kAPIPathDeleteCity = @"/api/deletecity";
+
+// HTTP Constants
+static NSString * const kHTTPHeaderForContentType = @"Content-type";
+static NSString * const kHTTPValueForContentType = @"application/json";
+
+// Keys for post data
+static NSString * const kAPIKeyEmail = @"email";
+static NSString * const kAPIKeyPassword = @"password";
+static NSString * const kAPIKeyDeviceToken = @"deviceToken";
+static NSString * const kAPIKeyJWTToken = @"jwt";
+static NSString * const kAPIKeyCityName = @"cityName";
 
 @implementation PANetworkingService
 
@@ -22,19 +39,24 @@ static NSString * const kAPIDomain = @"http://127.0.0.1:3000/test";
     return _sharedService;
 }
 
-- (void)signUpWithUserData:(NSDictionary *)userData completion:(void (^)(NSString *, NSError *))completion {
+- (void)signUpWithEmail:(NSString *)email andPassword:(NSString *)password completion:(void (^)(NSString *, NSError *))completion {
+    NSString *apiEndpoint = [NSString stringWithFormat:@"%@%@", kAPIDomain, kAPIPathUsers];
+    NSURL *url = [NSURL URLWithString:apiEndpoint];
     
-    NSURL *url = [NSURL URLWithString:kAPIDomain];
-    
-    __block NSString *token = nil;
+    __block NSString *apiToken = nil;
     __block NSError *signUpError;
-    NSData *postData = [NSJSONSerialization dataWithJSONObject:userData options:0 error:&signUpError];
-
-    if (!signUpError) {
-
+    
+    NSData *postData = [self generatePostDataforUserWithEmail:email password:password error:&signUpError];
+    
+    if (signUpError) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(apiToken, signUpError);
+        });
+    }
+    else {
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         [request setHTTPMethod:@"POST"];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
+        [request setValue:kHTTPValueForContentType forHTTPHeaderField:kHTTPHeaderForContentType];
         [request setHTTPBody:postData];
         
         NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
@@ -48,16 +70,41 @@ static NSString * const kAPIDomain = @"http://127.0.0.1:3000/test";
                 if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
                     
-                    NSLog(@"Response: %lu", httpResponse.statusCode);
-                    token = @"someToken";
+                    if (httpResponse.statusCode < 300) {
+                        id jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&signUpError];
+                        
+                        if (!signUpError) {
+                            if ([jsonData isKindOfClass:[NSDictionary class]]) {
+                                NSDictionary *responseData = (NSDictionary *)jsonData;
+                                apiToken = responseData[kAPIKeyJWTToken];
+                                if (apiToken) {
+                                    [[NSUserDefaults standardUserDefaults] setObject:apiToken forKey:kAPIKeyJWTToken];
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        NSDictionary *userInfo = @{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"%lu", httpResponse.statusCode]};
+                        signUpError = [NSError errorWithDomain:kPADomain code:-1 userInfo:userInfo];
+                    }
                 }
             }
             
-            completion(token, signUpError);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(apiToken, signUpError);
+            });
         }];
         
         [task resume];
     }
+}
+
+- (NSData *)generatePostDataforUserWithEmail:(NSString *)email password:(NSString *)password error:(NSError *__autoreleasing *)error {
+//    NSString *deviceToken = [[NSUserDefaults standardUserDefaults] objectForKey:kDeviceToken];
+    NSDictionary *postData = @{kAPIKeyEmail         : email,
+                               kAPIKeyPassword      : password,
+                               kAPIKeyDeviceToken   : self.deviceToken};
+    return [NSJSONSerialization dataWithJSONObject:postData options:0 error:&*error];
 }
 
 @end

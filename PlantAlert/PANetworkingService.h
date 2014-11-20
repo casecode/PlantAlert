@@ -10,8 +10,10 @@
 
 @interface PANetworkingService : NSObject
 
+@property (nonatomic, copy) NSString *deviceToken;
+
 + (id)sharedService;
 
-- (void)signUpWithUserData:(NSDictionary *)userData completion:(void (^) (NSString *token, NSError *error))completion;
+- (void)signUpWithEmail:(NSString *)email andPassword:(NSString *)password completion:(void (^) (NSString *token, NSError *error))completion;
 
 @end

@@ -12,15 +12,24 @@
 
 @interface AppDelegate ()
 
+@property (strong, nonatomic) PANetworkingService *apiService;
+
 @end
 
 @implementation AppDelegate
 
+- (PANetworkingService *)apiService {
+    if (!_apiService) {
+        _apiService = [PANetworkingService sharedService];
+    }
+    
+    return _apiService;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    BOOL isAuthenticated = YES;
+    BOOL isAuthenticated = NO;
     
     if (isAuthenticated) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
@@ -30,6 +39,9 @@
         self.window.rootViewController = initialVC;
         [self.window makeKeyAndVisible];
     }
+    
+    [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
     
     return YES;
 }
@@ -56,6 +68,21 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+#pragma mark - Remote Notifications
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    const unsigned *tokenBytes = [deviceToken bytes];
+    NSString *hexToken = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
+                          ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                          ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                          ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+    [[self apiService] setDeviceToken:hexToken];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"Failure to receive device token. Error: %@", [error localizedDescription]);
 }
 
 #pragma mark - Core Data stack
