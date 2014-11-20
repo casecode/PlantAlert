@@ -77,13 +77,13 @@
         [self showTSMessageWithTitle:errorMessage subtitle:nil];
     }
     else {
-        [self.apiService signUpWithEmail:self.emailTextField.text andPassword:self.passwordTextField.text completion:^(NSString *token, NSError *error) {
-            if (token) {
+        [self.apiService signUpWithEmail:self.emailTextField.text andPassword:self.passwordTextField.text completion:^(BOOL success, NSError *error) {
+            if (success) {
                 id gardenNavController = [self.storyboard instantiateViewControllerWithIdentifier:kReIDGardenNavController];
                 [self presentViewController:gardenNavController animated:YES completion:nil];
             }
             else {
-                [self showTSMessageWithTitle:@"Unable to create new account" subtitle:nil];
+                [self showTSMessageWithTitle:@"Unable to create new account." subtitle:nil];
             }
         }];
     }
