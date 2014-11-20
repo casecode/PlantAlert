@@ -42,7 +42,6 @@
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
->>>>>>> master
 
 #pragma mark - Fetched results controller
 

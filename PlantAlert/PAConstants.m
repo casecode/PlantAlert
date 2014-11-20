@@ -8,6 +8,7 @@
 
 #import "PAConstants.h"
 
+NSString * const kPADomain = @"com.codefellows.PlantAlert";
 
 // Reuse Identifiers
 NSString * const kReIDLoginNavController = @"LoginNavController";
@@ -22,4 +23,11 @@ NSString * const kReIDCityAutocompleteCell = @"CityAutocompleteCell";
 NSString * const kReIDSelectedCityCell = @"SelectedCityCell";
 
 NSString * const kDeviceToken = @"deviceToken";
-NSString * const kJWTToken = @"jwt";
+NSString * const kJWTToken = @"jwtToken";
+
+//// Keys for post data
+//NSString * const kAPIKeyEmail = @"email";
+//NSString * const kAPIKeyPassword = @"password";
+//NSString * const kAPIKeyDeviceToken = @"deviceID";
+//NSString * const kAPIKeyJWTToken = @"jwt";
+//NSString * const kAPIKeyCityName = @"cityName";

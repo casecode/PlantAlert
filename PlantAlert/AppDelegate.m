@@ -8,18 +8,28 @@
 
 #import "AppDelegate.h"
 #import "PAConstants.h"
+#import "PANetworkingService.h"
 
 @interface AppDelegate ()
+
+@property (strong, nonatomic) PANetworkingService *apiService;
 
 @end
 
 @implementation AppDelegate
 
+- (PANetworkingService *)apiService {
+    if (!_apiService) {
+        _apiService = [PANetworkingService sharedService];
+    }
+    
+    return _apiService;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    BOOL isAuthenticated = YES;
+    BOOL isAuthenticated = NO;
     
     if (isAuthenticated) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
@@ -30,14 +40,8 @@
         [self.window makeKeyAndVisible];
     }
     
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
-        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
-    }
-    else {
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-         (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
-    }
+    [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
     
     return YES;
 }
@@ -74,8 +78,7 @@
                           ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
                           ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
                           ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
-    [[NSUserDefaults standardUserDefaults] setObject:hexToken forKey:kDeviceToken];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[self apiService] setDeviceToken:hexToken];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {

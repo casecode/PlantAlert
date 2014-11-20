@@ -8,6 +8,7 @@
 
 #import "SignUpVC.h"
 #import "PANetworkingService.h"
+#import "PAConstants.h"
 #import <TSMessages/TSMessage.h>
 #import <TSMessages/TSMessageView.h>
 
@@ -66,34 +67,33 @@
     }
     
     if (errorMessage) {
-        [TSMessage showNotificationInViewController:self
-                                              title:errorMessage
-                                           subtitle:nil
-                                              image:nil
-                                               type:TSMessageNotificationTypeMessage
-                                           duration:TSMessageNotificationDurationAutomatic
-                                           callback:nil
-                                        buttonTitle:@"OK"
-                                     buttonCallback:^{
-                                         NSLog(@"User tapped the button");
-                                     }
-                                         atPosition:TSMessageNotificationPositionTop
-                               canBeDismissedByUser:YES];
+        [self showTSMessageWithTitle:errorMessage subtitle:nil];
     }
     else {
-        NSString *deviceID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-        NSDictionary *userData = @{@"email"     : _emailTextField.text,
-                                   @"password"  : _passwordTextField.text,
-                                   @"deviceID"  : deviceID};
-        [[self apiService] signUpWithUserData:userData completion:^(NSString *token, NSError *error) {
-            if (error) {
-                NSLog(@"Error: %@", [error localizedDescription]);
+        [self.apiService signUpWithEmail:self.emailTextField.text andPassword:self.passwordTextField.text completion:^(NSString *token, NSError *error) {
+            if (token) {
+                id gardenNavController = [self.storyboard instantiateViewControllerWithIdentifier:kReIDGardenNavController];
+                [self presentViewController:gardenNavController animated:YES completion:nil];
             }
             else {
-                NSLog(@"Token: %@", token);
+                [self showTSMessageWithTitle:@"Unable to create new account" subtitle:nil];
             }
         }];
     }
+}
+
+- (void)showTSMessageWithTitle:(NSString *)title subtitle:(NSString *)subtitle {
+    [TSMessage showNotificationInViewController:self
+                                          title:title
+                                       subtitle:subtitle
+                                          image:nil
+                                           type:TSMessageNotificationTypeMessage
+                                       duration:TSMessageNotificationDurationAutomatic
+                                       callback:nil
+                                    buttonTitle:@"Dismiss"
+                                 buttonCallback:nil
+                                     atPosition:TSMessageNotificationPositionTop
+                           canBeDismissedByUser:YES];
 }
 
 @end
