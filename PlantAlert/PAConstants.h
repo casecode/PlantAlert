@@ -21,13 +21,3 @@ FOUNDATION_EXPORT NSString * const kReIDAddGardenVC;
 
 FOUNDATION_EXPORT NSString * const kReIDCityAutocompleteCell;
 FOUNDATION_EXPORT NSString * const kReIDSelectedCityCell;
-
-//FOUNDATION_EXPORT NSString * const kDeviceToken;
-//FOUNDATION_EXPORT NSString * const kJWTToken;
-
-//// Keys for post data
-//FOUNDATION_EXPORT NSString * const kAPIKeyEmail;
-//FOUNDATION_EXPORT NSString * const kAPIKeyPassword;
-//FOUNDATION_EXPORT NSString * const kAPIKeyDeviceToken;
-//FOUNDATION_EXPORT NSString * const kAPIKeyJWTToken;
-//FOUNDATION_EXPORT NSString * const kAPIKeyCityName;

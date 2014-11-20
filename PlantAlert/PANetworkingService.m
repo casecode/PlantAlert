@@ -19,12 +19,11 @@ static NSString * const kAPIPathDeleteCity = @"/api/deletecity";
 // HTTP Constants
 static NSString * const kHTTPHeaderForContentType = @"Content-type";
 static NSString * const kHTTPValueForContentType = @"application/json";
-static NSString * const kHTTPRequestTypePOST = @"POST";
 
 // Keys for post data
 static NSString * const kAPIKeyEmail = @"email";
 static NSString * const kAPIKeyPassword = @"password";
-static NSString * const kAPIKeyDeviceToken = @"deviceID";
+static NSString * const kAPIKeyDeviceToken = @"deviceToken";
 static NSString * const kAPIKeyJWTToken = @"jwt";
 static NSString * const kAPIKeyCityName = @"cityName";
 
@@ -56,7 +55,7 @@ static NSString * const kAPIKeyCityName = @"cityName";
     }
     else {
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-        [request setHTTPMethod:kHTTPRequestTypePOST];
+        [request setHTTPMethod:@"POST"];
         [request setValue:kHTTPValueForContentType forHTTPHeaderField:kHTTPHeaderForContentType];
         [request setHTTPBody:postData];
         
@@ -102,10 +101,9 @@ static NSString * const kAPIKeyCityName = @"cityName";
 
 - (NSData *)generatePostDataforUserWithEmail:(NSString *)email password:(NSString *)password error:(NSError *__autoreleasing *)error {
 //    NSString *deviceToken = [[NSUserDefaults standardUserDefaults] objectForKey:kDeviceToken];
-    NSString *deviceToken = @"testToken";
     NSDictionary *postData = @{kAPIKeyEmail         : email,
                                kAPIKeyPassword      : password,
-                               kAPIKeyDeviceToken   : deviceToken};
+                               kAPIKeyDeviceToken   : self.deviceToken};
     return [NSJSONSerialization dataWithJSONObject:postData options:0 error:&*error];
 }
 
