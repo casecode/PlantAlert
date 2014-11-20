@@ -282,6 +282,7 @@
 				TargetAttributes = {
 					489E62071A1A8264009B904F = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 6KFZE26VL2;
 					};
 					489E62231A1A8264009B904F = {
 						CreatedOnToolsVersion = 6.1;
@@ -505,9 +506,12 @@
 			baseConfigurationReference = 50B034FB7A876065F98A43D3 /* Pods-PlantAlert.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PlantAlert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -516,9 +520,12 @@
 			baseConfigurationReference = 4E32808D5449CBE4CE6F533A /* Pods-PlantAlert.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PlantAlert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
