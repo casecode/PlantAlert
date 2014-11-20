@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+FOUNDATION_EXPORT NSString * const kPADomain;
 
 // ReuseIdentifiers
-
 FOUNDATION_EXPORT NSString * const kReIDLoginNavController;
 FOUNDATION_EXPORT NSString * const kReIDLoginVC;
 FOUNDATION_EXPORT NSString * const kReIDSignUpVC;
