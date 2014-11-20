@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "PAConstants.h"
 #import "PANetworkingService.h"
+#import <TSMessages/TSMessage.h>
+#import <TSMessages/TSMessageView.h>
 
 @interface AppDelegate ()
 
@@ -83,6 +85,34 @@
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSLog(@"Failure to receive device token. Error: %@", [error localizedDescription]);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    application.applicationIconBadgeNumber = 0;
+    
+    if (application.applicationState == UIApplicationStateActive) {
+
+        NSString *alertTitle = [userInfo valueForKeyPath:@"alertTitle"];
+        NSString *alertSubtitle = [userInfo valueForKeyPath:@"aps.alert"];
+        [self showTSMessageWithTitle:alertTitle subtitle:alertSubtitle];
+    }
+    
+}
+
+- (void)showTSMessageWithTitle:(NSString *)title subtitle:(NSString *)subtitle {
+    UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    [TSMessage showNotificationInViewController:rootVC
+                                          title:title
+                                       subtitle:subtitle
+                                          image:nil
+                                           type:TSMessageNotificationTypeMessage
+                                       duration:TSMessageNotificationDurationEndless
+                                       callback:nil
+                                    buttonTitle:@"Dismiss"
+                                 buttonCallback:nil
+                                     atPosition:TSMessageNotificationPositionTop
+                           canBeDismissedByUser:YES];
 }
 
 #pragma mark - Core Data stack
