@@ -23,25 +23,32 @@
 @property (strong, nonatomic) NSArray *cities;
 @property (strong, nonatomic) NSArray *searchResults;
 
+@property (strong, nonatomic) UIBarButtonItem *customBackButtonItem;
 @end
 
 @implementation AddGardenVC
+
+-(UIBarButtonItem *)customBackButtonItem {
+    if (!_customBackButtonItem) {
+        UIImage *image = [UIImage imageNamed:@"leftGreen1"];
+        CGRect frame = CGRectMake(0, 0, 22, 22);
+        UIButton* button = [[UIButton alloc] initWithFrame:frame];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(navigateBack:) forControlEvents:UIControlEventTouchDown];
+        _customBackButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    }
+    
+    return _customBackButtonItem;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"Add a Garden";
-    // TEST: add left barbutton with image
-    UIImage *image = [UIImage imageNamed:@"leftGreen1"];
-    CGRect frame = CGRectMake(0, 0, 22, 22);
-    UIButton* button = [[UIButton alloc] initWithFrame:frame];
-    [button setBackgroundImage:image forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(navigateBack:) forControlEvents:UIControlEventTouchDown];
-    UIBarButtonItem* addGardenItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    [self.navigationItem setLeftBarButtonItem:addGardenItem];
+    
+    self.navigationItem.hidesBackButton = YES;
+    [self.navigationItem setLeftBarButtonItem:self.customBackButtonItem];
 
-    
-    
     UINib *cityAutocompleteCellNib = [UINib nibWithNibName:kReIDCityAutocompleteCell bundle:[NSBundle mainBundle]];
     [self.tableView registerNib:cityAutocompleteCellNib forCellReuseIdentifier:kReIDCityAutocompleteCell];
     
@@ -152,12 +159,12 @@
 #pragma mark - UISearchBarDelegate
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-    self.navigationItem.hidesBackButton = YES;
+    [self.navigationItem setLeftBarButtonItem:nil];
     return YES;
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    self.navigationItem.hidesBackButton = NO;
+    [self.navigationItem setLeftBarButtonItem:self.customBackButtonItem];
 }
 
 @end
