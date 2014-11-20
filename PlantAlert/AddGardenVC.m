@@ -42,13 +42,23 @@
     
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
-    self.searchController.dimsBackgroundDuringPresentation = YES;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
     self.searchController.hidesNavigationBarDuringPresentation = NO;
     
     self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0);
     self.searchController.searchBar.placeholder = @"Search by city";
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    self.searchController.searchBar.delegate = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.searchController setActive:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,6 +68,8 @@
 
 - (void)fetchUnselectedCities {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"City"];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    fetchRequest.sortDescriptors = @[sortDescriptor];
     NSError *error = nil;
     NSArray *fetchedCities = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
@@ -98,6 +110,18 @@
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    City *selectedCity = self.searchResults[indexPath.row];
+    [self.searchController setActive:NO];
+    
+    if (self.citySelectionDelegate) {
+        [self.citySelectionDelegate citySelected:selectedCity];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - UISearchResultsUpdating
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
@@ -109,6 +133,17 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(name BEGINSWITH[cd] %@)", searchString];
     self.searchResults = [self.cities filteredArrayUsingPredicate:predicate];
     [self.tableView reloadData];
+}
+
+#pragma mark - UISearchBarDelegate
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    self.navigationItem.hidesBackButton = YES;
+    return YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    self.navigationItem.hidesBackButton = NO;
 }
 
 @end

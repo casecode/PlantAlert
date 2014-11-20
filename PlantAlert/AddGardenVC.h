@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CitySelectionDelegate.h"
 
 @interface AddGardenVC : UIViewController
+
+@property (weak, nonatomic) id <CitySelectionDelegate> citySelectionDelegate;
 
 @end
