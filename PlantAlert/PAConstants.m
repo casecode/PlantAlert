@@ -21,3 +21,5 @@ NSString * const kReIDGardenListVC = @"GardenListVC";
 NSString * const kReIDCityAutocompleteCell = @"CityAutocompleteCell";
 NSString * const kReIDSelectedCityCell = @"SelectedCityCell";
 
+NSString * const kDeviceToken = @"deviceToken";
+NSString * const kJWTToken = @"jwt";

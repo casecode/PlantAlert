@@ -21,3 +21,6 @@ FOUNDATION_EXPORT NSString * const kReIDAddGardenVC;
 
 FOUNDATION_EXPORT NSString * const kReIDCityAutocompleteCell;
 FOUNDATION_EXPORT NSString * const kReIDSelectedCityCell;
+
+FOUNDATION_EXPORT NSString * const kDeviceToken;
+FOUNDATION_EXPORT NSString * const kJWTToken;
