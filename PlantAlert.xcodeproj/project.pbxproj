@@ -99,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4818F1921A1F1AA300C9F856 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				92FEAAF31A1C0A1800BD0125 /* City.h */,
+				92FEAAF41A1C0A1800BD0125 /* City.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		4850A4491A1C61F400A9BF43 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,11 +158,10 @@
 				489E62101A1A8264009B904F /* AppDelegate.m */,
 				92873AAC1A1A89A200E6B809 /* ViewControllers */,
 				4850A4491A1C61F400A9BF43 /* Views */,
+				4818F1921A1F1AA300C9F856 /* Models */,
 				4892487D1A1D3088007C4BD4 /* Protocols */,
 				92873AB31A1AACDB00E6B809 /* Services */,
 				489E621B1A1A8264009B904F /* Images.xcassets */,
-				92FEAAF31A1C0A1800BD0125 /* City.h */,
-				92FEAAF41A1C0A1800BD0125 /* City.m */,
 				489E62181A1A8264009B904F /* Main.storyboard */,
 				489E621D1A1A8264009B904F /* LaunchScreen.xib */,
 				489E62121A1A8264009B904F /* PlantAlert.xcdatamodeld */,

@@ -9,7 +9,8 @@
 #import "PANetworkingService.h"
 #import "PAConstants.h"
 
-static NSString * const kAPIDomain = @"https://obscure-plateau-8027.herokuapp.com";
+static NSString * const kAPIDomain = @"http://127.0.0.1:3000";
+//static NSString * const kAPIDomain = @"https://obscure-plateau-8027.herokuapp.com";
 
 // Paths
 static NSString * const kAPIPathUsers = @"/api/users";
@@ -57,8 +58,9 @@ static NSString * const kAPIKeyCityName = @"cityName";
     NSString *apiEndpoint = [NSString stringWithFormat:@"%@%@", kAPIDomain, kAPIPathUsers];
     NSURL *url = [NSURL URLWithString:apiEndpoint];
     NSError *jsonError = nil;
+
     NSData *userData = [self generatePostDataforUserWithEmail:email password:password error:&jsonError];
-    
+
     if (jsonError) {
         completion(NO, jsonError);
     }
