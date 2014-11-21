@@ -9,7 +9,8 @@
 #import "PANetworkingService.h"
 #import "PAConstants.h"
 
-static NSString * const kAPIDomain = @"https://plantalert.herokuapp.com/";
+static NSString * const kAPIDomain = @"https://plantalert.herokuapp.com";
+//static NSString * const kAPIDomain = @"http://127.0.0.1:3000";
 
 // Paths
 static NSString * const kAPIPathUsers = @"/api/users";
@@ -74,7 +75,8 @@ static NSString * const kAPIKeyCityName = @"cityName";
 }
 
 - (void)loginWithEmail:(NSString *)email andPassword:(NSString *)password completion:(void (^)(BOOL, NSError *))completion {
-    NSString *params = [NSString stringWithFormat:@"?%@=%@&%@=%@&%@=%@", kAPIKeyEmail, email, kAPIKeyPassword, password, kAPIKeyDeviceToken, self.deviceToken];
+//    NSString *params = [NSString stringWithFormat:@"?%@=%@&%@=%@&%@=%@", kAPIKeyEmail, email, kAPIKeyPassword, password, kAPIKeyDeviceToken, self.deviceToken];
+    NSString *params = [NSString stringWithFormat:@"?%@=%@&%@=%@", @"username", email, kAPIKeyPassword, password];
     NSString *apiEndpoint = [NSString stringWithFormat:@"%@%@%@", kAPIDomain, kAPIPathUsers, params];
     NSURL *url = [NSURL URLWithString:apiEndpoint];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
