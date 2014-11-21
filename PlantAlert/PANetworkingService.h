@@ -15,6 +15,8 @@
 
 + (id)sharedService;
 
+- (BOOL)isAuthenticated;
+
 - (void)signUpWithEmail:(NSString *)email andPassword:(NSString *)password completion:(void (^) (BOOL success, NSError *error))completion;
 
 - (void)loginWithEmail:(NSString *)email andPassword:(NSString *)password completion:(void (^) (BOOL success, NSError *error))completion;

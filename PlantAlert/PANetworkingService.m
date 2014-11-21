@@ -39,6 +39,14 @@ static NSString * const kAPIKeyCityName = @"cityName";
     return _sharedService;
 }
 
+- (BOOL)isAuthenticated {
+    if ([self retrieveJWTToken]) {
+        return YES;
+    }
+    
+    return NO;
+}
+
 - (NSString *)deviceToken {
     return _deviceToken ? _deviceToken : @"testDeviceToken";
 }
@@ -197,8 +205,7 @@ static NSString * const kAPIKeyCityName = @"cityName";
 }
 
 - (NSString *)retrieveJWTToken {
-    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kAPIKeyJWTToken];
-    return token ? token : @"testJWTToken";
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kAPIKeyJWTToken];
 }
 
 @end

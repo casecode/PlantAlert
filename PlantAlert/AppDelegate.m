@@ -30,10 +30,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    BOOL isAuthenticated = YES;
-    
-    if (isAuthenticated) {
+        
+    if ([self.apiService isAuthenticated]) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         id initialVC = [storyboard instantiateViewControllerWithIdentifier:kReIDGardenNavController];
         
