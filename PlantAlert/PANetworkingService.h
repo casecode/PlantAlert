@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "City.h"
 
 @interface PANetworkingService : NSObject
 
@@ -17,5 +18,9 @@
 - (void)signUpWithEmail:(NSString *)email andPassword:(NSString *)password completion:(void (^) (BOOL success, NSError *error))completion;
 
 - (void)loginWithEmail:(NSString *)email andPassword:(NSString *)password completion:(void (^) (BOOL success, NSError *error))completion;
+
+- (void)addCity:(City *)city completion:(void (^) (BOOL success, NSError *error))completion;
+
+- (void)deleteCity:(City *)city completion:(void (^) (BOOL success, NSError *error))completion;
 
 @end

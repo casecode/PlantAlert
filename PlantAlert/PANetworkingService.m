@@ -13,8 +13,8 @@ static NSString * const kAPIDomain = @"http://127.0.0.1:3000";
 
 // Paths
 static NSString * const kAPIPathUsers = @"/api/users";
-static NSString * const kAPIPathAddCity = @"/api/addcity";
-static NSString * const kAPIPathDeleteCity = @"/api/deletecity";
+static NSString * const kAPIPathAddCity = @"/v1/api/addcity";
+static NSString * const kAPIPathDeleteCity = @"/v1/api/deletecity";
 
 // HTTP Constants
 static NSString * const kHTTPHeaderForContentType = @"Content-type";
@@ -40,8 +40,10 @@ static NSString * const kAPIKeyCityName = @"cityName";
 }
 
 - (NSString *)deviceToken {
-    return _deviceToken ? _deviceToken : @"null";
+    return _deviceToken ? _deviceToken : @"testDeviceToken";
 }
+
+#pragma mark - Authenticate Users
 
 - (void)signUpWithEmail:(NSString *)email andPassword:(NSString *)password completion:(void (^)(BOOL, NSError *))completion {
     NSString *apiEndpoint = [NSString stringWithFormat:@"%@%@", kAPIDomain, kAPIPathUsers];
@@ -70,59 +72,52 @@ static NSString * const kAPIKeyCityName = @"cityName";
     [self authenticateUserWithRequest:request callback:completion];
 }
 
-#pragma mark - Private
+#pragma mark Private
 
 - (void)authenticateUserWithRequest:(NSURLRequest *)request callback:(void (^)(BOOL, NSError *))callback {
     
     __block BOOL success = NO;
     __block NSError *authError;
     
-    if (authError) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            callback(success, authError);
-        });
-    }
-    else {
-        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-        NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 
-            if (error) {
-                authError = error;
-                NSLog(@"Error: %@", [error localizedDescription]);
-            }
-            else {
-                if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        if (error) {
+            authError = error;
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }
+        else {
+            if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
 
-                    if (httpResponse.statusCode < 300) {
-                        id jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&authError];
+                if (httpResponse.statusCode < 300) {
+                    id jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&authError];
 
-                        if (!authError) {
-                            
-                            if ([jsonData isKindOfClass:[NSDictionary class]]) {
-                                NSDictionary *responseData = (NSDictionary *)jsonData;
-                                NSString *apiToken = responseData[kAPIKeyJWTToken];
-                                if (apiToken) {
-                                    success = YES;
-                                    [[NSUserDefaults standardUserDefaults] setObject:apiToken forKey:kAPIKeyJWTToken];
-                                }
+                    if (!authError) {
+                        
+                        if ([jsonData isKindOfClass:[NSDictionary class]]) {
+                            NSDictionary *responseData = (NSDictionary *)jsonData;
+                            NSString *apiToken = responseData[kAPIKeyJWTToken];
+                            if (apiToken) {
+                                success = YES;
+                                [[NSUserDefaults standardUserDefaults] setObject:apiToken forKey:kAPIKeyJWTToken];
                             }
                         }
                     }
-                    else {
-                        NSDictionary *userInfo = @{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"%lu", httpResponse.statusCode]};
-                        authError = [NSError errorWithDomain:kPADomain code:-1 userInfo:userInfo];
-                    }
+                }
+                else {
+                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"%lu", httpResponse.statusCode]};
+                    authError = [NSError errorWithDomain:kPADomain code:-1 userInfo:userInfo];
                 }
             }
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                callback(success, authError);
-            });
-        }];
+        }
         
-        [task resume];
-    }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            callback(success, authError);
+        });
+    }];
+    
+    [task resume];
 }
 
 - (NSData *)generatePostDataforUserWithEmail:(NSString *)email password:(NSString *)password error:(NSError *__autoreleasing *)error {
@@ -130,6 +125,80 @@ static NSString * const kAPIKeyCityName = @"cityName";
                                kAPIKeyPassword      : password,
                                kAPIKeyDeviceToken   : self.deviceToken};
     return [NSJSONSerialization dataWithJSONObject:userData options:0 error:&*error];
+}
+
+#pragma mark - Cities
+
+- (void)addCity:(City *)city completion:(void (^)(BOOL, NSError *))completion {
+    NSString *url = [NSString stringWithFormat:@"%@%@", kAPIDomain, kAPIPathAddCity];
+    [self requestForCity:city withURL:url callback:completion];
+}
+
+- (void)deleteCity:(City *)city completion:(void (^)(BOOL, NSError *))completion {
+    NSString *url = [NSString stringWithFormat:@"%@%@", kAPIDomain, kAPIPathDeleteCity];
+    [self requestForCity:city withURL:url callback:completion];
+}
+
+- (void)requestForCity:(City *)city withURL:(NSString *)urlString callback:(void (^)(BOOL, NSError *))callback {
+
+    __block BOOL success = NO;
+    __block NSError *cityError;
+    
+    NSData *cityData = [self generatePostDataForCity:city error:&cityError];
+    
+    if (cityError) {
+        callback(success, cityError);
+    }
+    else {
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:kHTTPValueForContentType forHTTPHeaderField:kHTTPHeaderForContentType];
+        [request setHTTPBody:cityData];
+        
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            
+            if (error) {
+                cityError = error;
+                NSLog(@"Error: %@", [error localizedDescription]);
+            }
+            else {
+                if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                    
+                    if (httpResponse.statusCode < 300) {
+                        success = YES;
+                    }
+                    else {
+                        NSDictionary *userInfo = @{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"%lu", httpResponse.statusCode]};
+                        cityError = [NSError errorWithDomain:kPADomain code:-1 userInfo:userInfo];
+                    }
+                }
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                callback(success, cityError);
+            });
+        }];
+        
+        [task resume];
+    }
+}
+
+
+#pragma mark Private
+
+-(NSData *)generatePostDataForCity:(City *)city error:(NSError *__autoreleasing *)error {
+    NSDictionary *cityData = @{kAPIKeyCityName   : city.name,
+                               kAPIKeyJWTToken   : [self retrieveJWTToken]};
+    return [NSJSONSerialization dataWithJSONObject:cityData options:0 error:&*error];
+}
+
+- (NSString *)retrieveJWTToken {
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kAPIKeyJWTToken];
+    return token ? token : @"testJWTToken";
 }
 
 @end

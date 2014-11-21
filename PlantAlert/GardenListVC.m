@@ -14,6 +14,9 @@
 #import <CoreData/CoreData.h>
 #import "AddGardenVC.h"
 #import "CitySelectionDelegate.h"
+#import "PANetworkingService.h"
+#import <TSMessages/TSMessage.h>
+#import <TSMessages/TSMessageView.h>
 
 @interface GardenListVC () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, CitySelectionDelegate>
 
@@ -22,10 +25,19 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
+@property (strong, nonatomic) PANetworkingService *apiService;
 
 @end
 
 @implementation GardenListVC
+
+- (PANetworkingService *)apiService {
+    if (!_apiService) {
+        _apiService = [PANetworkingService sharedService];
+    }
+    
+    return _apiService;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -137,6 +149,12 @@
         if (![context save:&error]) {
             NSLog(@"Error updating city: %@, %@", error, [error userInfo]);
         }
+        
+        [self.apiService deleteCity:deselectedCity completion:^(BOOL success, NSError *error) {
+            if (error) {
+                NSLog(@"Error removing %@. Error: %@", deselectedCity.name, [error localizedDescription]);
+            }
+        }];
     }
 }
 
@@ -156,20 +174,16 @@
     }
 }
 
-
-
-
 #pragma mark - NSFetchedResultsControllerDelegate
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView beginUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
-      newIndexPath:(NSIndexPath *)newIndexPath
-{
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
     UITableView *tableView = self.tableView;
     
     switch(type) {
@@ -212,10 +226,32 @@
     NSManagedObjectContext *context = self.managedObjectContext;
     [city setSelected:[NSNumber numberWithBool:YES]];
     
-    NSError *error = nil;
-    if (![context save:&error]) {
-        NSLog(@"Error updating %@: %@, %@", city.name, error, [error userInfo]);
-    }
+    __weak id _this = self;
+    [self.apiService addCity:city completion:^(BOOL success, NSError *error) {
+        if (success) {
+            NSError *saveError = nil;
+            if ([context save:&saveError]) {
+                return;
+            }
+        }
+        
+        NSString *errorMessage = [NSString stringWithFormat:@"Unable to add %@", city.name];
+        [_this showTSMessageWithTitle:errorMessage subtitle:nil];
+    }];
+}
+
+- (void)showTSMessageWithTitle:(NSString *)title subtitle:(NSString *)subtitle {
+    [TSMessage showNotificationInViewController:self
+                                          title:title
+                                       subtitle:subtitle
+                                          image:nil
+                                           type:TSMessageNotificationTypeMessage
+                                       duration:TSMessageNotificationDurationAutomatic
+                                       callback:nil
+                                    buttonTitle:@"Dismiss"
+                                 buttonCallback:nil
+                                     atPosition:TSMessageNotificationPositionTop
+                           canBeDismissedByUser:YES];
 }
 
 @end

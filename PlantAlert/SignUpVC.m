@@ -35,18 +35,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (self.navigationController) {
-        self.title = @"Sign Up";
-        
-     
-        UIImage *image = [UIImage imageNamed:@"leftGreen"];
-        CGRect frame = CGRectMake(0, 0, 22, 22);
-        UIButton* button = [[UIButton alloc] initWithFrame:frame];
-        [button setBackgroundImage:image forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(navigateBack:) forControlEvents:UIControlEventTouchDown];
-        UIBarButtonItem* backButton = [[UIBarButtonItem alloc] initWithCustomView:button];
-        [self.navigationItem setLeftBarButtonItem:backButton];
-    }
+    self.title = @"Sign Up";
+    
+    UIImage *image = [UIImage imageNamed:@"leftGreen"];
+    CGRect frame = CGRectMake(0, 0, 22, 22);
+    UIButton* button = [[UIButton alloc] initWithFrame:frame];
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(navigateBack:) forControlEvents:UIControlEventTouchDown];
+    UIBarButtonItem* backButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    [self.navigationItem setLeftBarButtonItem:backButton];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    [self.view addGestureRecognizer:tap];
+}
+
+- (void)dismissKeyboard:(UITapGestureRecognizer *)sender {
+    [self.view endEditing:YES];
 }
 
 - (IBAction)navigateBack:(id)sender {
@@ -54,7 +58,7 @@
 }
 
 - (IBAction)signUpPressed:(id)sender {
-    [self resignFirstResponder];
+    [self.view endEditing:YES];
     
     NSString *errorMessage = nil;
     

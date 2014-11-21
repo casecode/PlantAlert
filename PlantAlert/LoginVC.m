@@ -42,11 +42,16 @@
     //background image
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"plantAlertBg.jpg"]];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    [self.view addGestureRecognizer:tap];
+}
 
+- (void)dismissKeyboard:(UITapGestureRecognizer *)sender {
+    [self.view endEditing:YES];
 }
 
 - (IBAction)LoginPressed:(id)sender {
-    [self resignFirstResponder];
+    [self.view endEditing:YES];
     
     NSString *errorMessage = nil;
     
